@@ -1,15 +1,18 @@
 package Recursion;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class AllTheSubStrings {
 	public static void substring(String str) {
-		Set<String> list = new HashSet<String>();
-		System.out.println(makeSubStr(list, str, "", 0));
+		ArrayList<String> list = new ArrayList<String>();
+		makeSubStr(list, str, "", 0);
+		System.out.println(list);
 	}
 
-	public static Set<String> makeSubStr(Set<String> list, String s, String cur, int i) {
+	public static void makeSubStr(ArrayList<String> list, String s, String cur, int i) {
 		if (i == s.length()) {
 			list.add(cur);
 
@@ -18,7 +21,7 @@ public class AllTheSubStrings {
 			makeSubStr(list, s, cur, i + 1);
 		}
 		list.remove("");
-		return list;
+		
 		
 	}
 
