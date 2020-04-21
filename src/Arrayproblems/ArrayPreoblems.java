@@ -52,7 +52,7 @@ public class ArrayPreoblems {
 			int temp = arr[high];
 			arr[high] = arr[low];
 			arr[low] = temp;
-//			System.out.println(high +" "+ low);
+
 			low++;
 			high--;
 		}
