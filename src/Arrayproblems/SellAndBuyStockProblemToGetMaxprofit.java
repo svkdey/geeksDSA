@@ -1,5 +1,7 @@
 package Arrayproblems;
 
+import java.util.ArrayList;
+
 public class SellAndBuyStockProblemToGetMaxprofit {
 	/*
 	 * Solution :1 we need to find a pair where transaction is profitable ,lets buy
@@ -51,16 +53,29 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 
 	}
 
+	public static void SellAndBuyStockProblemtoGetMaxprofit3(int[] arr, int start, int end) {
+		ArrayList<int[]> list=new ArrayList<int[]>();
+		int [] transaction= {0,0};
+		for(int i=0;i<end-1;i++) {
+			if(arr[i+1]>arr[i]) {
+				transaction[0]=arr[i];
+				transaction[0]=arr[i+1];
+				list.add(transaction);
+			}
+		}
+		System.out.println(list);
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] stocklist1 = { 1, 2, 10, 5, 2, 3, 12 };
-		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist1, 0, 6));
-		int[] stocklist2 = { 1, 2, 3 };
-		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist2, 0, 2));
-		int[] stocklist3 = { 3, 2, 1 };
-		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist3, 0, 2));
+//		int[] stocklist1 = { 1, 2, 10, 5, 2, 3, 12 };
+//		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist1, 0, 6));
+//		int[] stocklist2 = { 1, 2, 3 };
+//		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist2, 0, 2));
+//		int[] stocklist3 = { 3, 2, 1 };
+//		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist3, 0, 2));
 		int[] stocklist4 = { 1, 1, 10, 10, 30, 5 };
-		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist4, 0, 5));
+		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, 0, 5);
 	}
 
 }

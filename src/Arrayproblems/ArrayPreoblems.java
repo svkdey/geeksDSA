@@ -108,11 +108,16 @@ public class ArrayPreoblems {
 		 */
 		// better approach
 		/*
-		 * int[] temp = new int[d]; for (int i = 0; i < d; i++) { temp[i] = arr[i]; } //
-		 * showArr(temp, d); for (int i = d; i < size; i++) { arr[i - d] = arr[i]; } //
-		 * showArr(arr, size); for (int i = 0; i < d; i++) { arr[size - d + i] =
-		 * temp[i];
-		 * 
+		 * int[] temp = new int[d]; 
+		 * for (int i = 0; i < d; i++) {
+		 * 	 temp[i] = arr[i]; 
+		 * 	} //
+		 * showArr(temp, d); 
+		 * for (int i = d; i < size; i++) {
+		 * 	 arr[i - d] = arr[i]; } //
+		 * showArr(arr, size); 
+		 * for (int i = 0; i < d; i++) { 
+		 * 	arr[size - d + i] = temp[i];
 		 * }
 		 * 
 		 * showArr(arr, size);
