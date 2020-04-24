@@ -1,8 +1,9 @@
 package Hashing;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
+
+import Data.Data;
 
 public class LongestConsicutiveElement {
 	// o(nlogN +N) solution
@@ -21,7 +22,7 @@ public class LongestConsicutiveElement {
 		maxVal = Math.max(res, maxVal);
 		System.out.println(maxVal);
 	}
-
+//O(n) solution
 	static void longestConsicutiveElementSol2(int arr[]) {
 		//worst case n^2 but good case n
 		LinkedHashSet<Integer> hs = new LinkedHashSet<Integer>();
@@ -46,7 +47,7 @@ public class LongestConsicutiveElement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		longestConsicutiveElementSol2(new int[] {10,11,15,20 });
+		longestConsicutiveElementSol2(Data.LONGCONSICUTIVEDATA);
 	}
 
 }

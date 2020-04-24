@@ -13,8 +13,9 @@ public class LongestSubarrayWithEqualNumberZeroAndOne {
 			} else {
 				prefixSum += 1;
 			}
+			
 			if (prefixSum == 0) {
-				maxLength = Math.max(i + 1, maxLength);
+				maxLength = i+1;
 			}
 			if (map.containsKey(prefixSum)) {
 				int idx = map.get(prefixSum);

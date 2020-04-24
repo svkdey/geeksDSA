@@ -215,6 +215,7 @@ public class ArrayPreoblems {
 //		reverse(arr1, 3);
 //		reverse(arr2, 4);
 		int[] arr = { 10,50, 100,20,50, 30, 40 };
+		leftRotateByd(arr, 7, 3);
 //		removeDuplicateInSortedArr(arr, 6);
 		maxDiff(arr, 7);
 	}

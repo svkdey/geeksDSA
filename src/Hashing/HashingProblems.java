@@ -3,13 +3,12 @@ package Hashing;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 
 public class HashingProblems {
-	public static LinkedHashMap<Integer, Integer> getFrequency(int[] arr) {
+	public static LinkedHashMap<Integer, Integer> getFrequency(int[] arr,int start,int end) {
 //		HashMap<Integer, Integer> m=new HashMap<>();
 		LinkedHashMap<Integer, Integer> m = new LinkedHashMap<>();
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = start; i <end; i++) {
 			if (!m.containsKey(arr[i])) {
 				m.put(arr[i], 1);
 			} else {
@@ -19,13 +18,14 @@ public class HashingProblems {
 		return m;
 	}
 
-	public static void noOfdistinctElement(int[] arr) {
-		HashMap<Integer, Integer> m = getFrequency(arr);
-		System.out.println(m.size());
+	public static int noOfdistinctElement(int[] arr,int start,int end) {
+		HashMap<Integer, Integer> m = getFrequency(arr,0,arr.length);
+//		System.out.println(m.size());
+		return m.size();
 	}
 
 	public static void frequency(int[] arr) {
-		LinkedHashMap<Integer, Integer> m = getFrequency(arr);
+		LinkedHashMap<Integer, Integer> m = getFrequency(arr,0,arr.length);
 		System.out.println(m);
 	}
 
@@ -60,7 +60,7 @@ public class HashingProblems {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		noOfdistinctElement(new int[] { 1, 2, 3, 3, 4, 4, 5 });
+		noOfdistinctElement(new int[] { 1, 2, 3, 3, 4, 4, 5 },0,7);
 		frequency(new int[] { 1, 9, 2, 3, 3, 4, 4, 5 });
 		intersectionOf2Array(new int[] { 1, 9, 2, 3, 3, 4, 4, 5 }, new int[] { 1, 9, 4, 4, 5 });
 		union(new int[] {3,3,3 }, new int[] {3,3 });

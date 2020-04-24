@@ -44,7 +44,7 @@ public class PrefixSumTechnique {
 		return -1;
 
 	}
-//important
+//impo
 	public static int NrangeMaxFrequencyNumber(int[] l, int[] r, int n) {
 		int[] arr = new int[1000];
 		for (int i = 0; i < n; i++) {

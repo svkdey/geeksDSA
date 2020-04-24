@@ -24,7 +24,7 @@ public class MaxLenEvenOddSubArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = { 7, 10, 13, 14 };
+	//	int[] arr = { 7, 10, 13, 14 };
 		int[] arr1 = { 12, 10, 14, 13, 8 };
 		System.out.println(maxLenEvenOddSubArray(arr1, 5));
 	}
