@@ -53,17 +53,10 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 
 	}
 
-	public static void SellAndBuyStockProblemtoGetMaxprofit3(int[] arr, int start, int end) {
-		ArrayList<int[]> list=new ArrayList<int[]>();
-		int [] transaction= {0,0};
-		for(int i=0;i<end-1;i++) {
-			if(arr[i+1]>arr[i]) {
-				transaction[0]=arr[i];
-				transaction[0]=arr[i+1];
-				list.add(transaction);
-			}
-		}
-		System.out.println(list);
+	public static void SellAndBuyStockProblemtoGetMaxprofit3(int[] price, int start, int n) {
+//		ArrayList<int[]> list=new ArrayList<int[]>();
+//		int [] transaction= {0,0};
+		
 	}
 
 	public static void main(String[] args) {
@@ -74,8 +67,9 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 //		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist2, 0, 2));
 //		int[] stocklist3 = { 3, 2, 1 };
 //		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist3, 0, 2));
-		int[] stocklist4 = { 1, 1, 10, 10, 30, 5 };
-		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, 0, 5);
+		int[] stocklist4 = { 23, 13, 25, 29, 33, 19, 34, 45, 65, 67 };
+		int[] stocklist5 = { 4, 2, 2, 2, 4 };
+		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, 0, stocklist4.length);
 	}
 
 }

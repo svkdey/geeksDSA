@@ -30,6 +30,8 @@ public class MedianOfTwoSortedArray {
 			} else if(max1>min2) {
 				end1=i1-1;
 			}else {
+				
+				
 				begin1=i1+1;
 			}
 		}

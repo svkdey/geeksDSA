@@ -1,6 +1,8 @@
 package Arrayproblems;
 import java.util.ArrayList;
 
+import Data.ArrayData;
+
 /*
  * insert(O(n))
  * searchLinear(O(n)) //unsorted
@@ -189,6 +191,59 @@ public class ArrayPreoblems {
 		System.out.println(max + " " +min);
 		System.out.println(max-min);
 	}
+	
+	 public static void rearrange(int arr[], int n){
+	        
+	        // Your code here
+	       int j=0,k=n-1;
+	       int temp[]=new int[n];
+	        for(int i=0;i<n;i++) {
+	        	if(i%2==0) {
+	        		temp[i]=arr[k];
+	        		k--;
+	        	}else {
+	        		temp[i]=arr[j];
+	        		j++;
+	        	}
+	        }
+	        for(int i=0;i<n;i++) {
+	        	System.out.println(temp[i]);
+	        }
+	        
+	    }
+	 /*
+	  * Example:
+	Input:
+	3
+	2
+	1 0
+	5
+	4 0 2 1 3
+	4
+	3 2 0 1
+	
+	Output:
+	0 1
+	3 4 2 0 1
+	1 0 3 2
+*/
+	 static void arrange(long arr[], int n)
+	    {
+	        // your code here
+	     
+		       long temp[]=new long[n];
+		        for(int i=0;i<n;i++) {
+		        	int hold=(int)arr[i];
+		        	temp[i]=arr[hold];
+		        }
+		      //  StringBuilder sb=new StringBuilder();  
+
+		        for(int i=0;i<n;i++) {
+		        arr[i]=temp[i];
+		        }
+//		        showArr(temp, temp.s);
+	    }
+	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr1[] = { 10, 20, 30 };
@@ -214,10 +269,11 @@ public class ArrayPreoblems {
 
 //		reverse(arr1, 3);
 //		reverse(arr2, 4);
-		int[] arr = { 10,50, 100,20,50, 30, 40 };
-		leftRotateByd(arr, 7, 3);
-//		removeDuplicateInSortedArr(arr, 6);
-		maxDiff(arr, 7);
+//		int[] arr = { 10,50, 100,20,50, 30, 40 };
+//		leftRotateByd(arr, 7, 3);
+////		removeDuplicateInSortedArr(arr, 6);
+//		maxDiff(arr, 7);
+//		arrange(ArrayData.arrangeData, ArrayData.arrangeData.length);
 	}
 
 }
