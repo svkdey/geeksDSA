@@ -13,7 +13,9 @@ public class MatrixProblems {
 
 			}
 			System.out.println();
+			
 		}
+//		System.out.println("------------------------");
 	}
 
 	static void printSnakePattern(int arr[][]) {

@@ -1,23 +1,23 @@
 package LinkedList;
 
 public class LinkedListNode {
-	int value;
-	LinkedListNode next;
+	int data;
+	public LinkedListNode next;
 
 	public LinkedListNode() {
 		super();
 
 	}
 
-	public LinkedListNode(int value) {
+	public LinkedListNode(int data) {
 		super();
-		this.value = value;
+		this.data = data;
 		this.next = null;
 	}
 
 	@Override
 	public String toString() {
-		return "LinkedListNode [value=" + value + ", next=" + next + "]";
+		return "LinkedListNode [value=" + data + ", next=" + next + "]";
 	}
 
 }

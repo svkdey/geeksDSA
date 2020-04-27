@@ -1,160 +1,65 @@
 package LinkedList;
 
-public class LinkedList {
+public class LinkedList implements LinkList {
 	LinkedListNode head;
-	LinkedListNode tail;
 	int length;
 
-	public LinkedList() {
-		super();
-		this.head = null;
-		this.tail = null;
-		this.length = 0;
+	
+
+	@Override
+	public String toString() {
+		return "LinkedList [head=" + head + ", length=" + length + "]";
 	}
 
-	public void tranverse() {
+	public LinkedList() {
+		this.head = null;
+	}
+
+	public LinkedList(int data) {
+		LinkedListNode node = new LinkedListNode(data);
+		this.head = node;
+	}
+
+	public void insertBegin(int data) {
+		LinkedListNode newNode = new LinkedListNode(data);
+		newNode.next = head;
+		this.head = newNode;
+		this.length++;
+	}
+
+	public void traverse() {
 		LinkedListNode currentNode = this.head;
-		if (currentNode == null) {
-			throw new Error("Linked list instantiated but does not have value");
-		}
 		while (currentNode != null) {
-			System.out.println(currentNode.toString());
+			System.out.println(currentNode.data);
 			currentNode = currentNode.next;
 		}
 	}
 
-	public void push(int value) {
-		LinkedListNode newNode = new LinkedListNode(value);
-		if (this.head == null) {
-			this.head = this.tail = newNode;
-		} else {
-			this.tail.next = newNode;
-			this.tail = newNode;
-		}
-		this.length++;
-	}
-
-	@Override
-	public String toString() {
-		System.out.println("LinkedList [head=" + head + ", tail=" + tail + ", length=" + length + "]");
-		return "LinkedList [head=" + head + ", tail=" + tail + ", length=" + length + "]";
-	}
-
-	public void shift(int value) {
-		LinkedListNode newNode = new LinkedListNode(value);
-		if (this.head == null) {
-			this.head = this.tail = newNode;
-		} else {
-			newNode.next = this.head;
-			this.head = newNode;
-		}
-		this.length++;
-
-	}
-
-	public void unshift() {
-		if (this.length == 0)
-			throw new Error("list doesnt exist");
-		else {
-			this.head = this.head.next;
-		}
-		this.length--;
-
-	}
-
-	public void pop() {
-		if (this.length == 0)
-			throw new Error("list doesnt exist");
-		else {
-			LinkedListNode currentNode = this.getNodeByPos(this.length - 1);
-			currentNode.next = currentNode.next.next;
-			this.tail = currentNode;
-			this.length--;
-		}
-	}
-
-	public void insertInNthPos(int pos, int value) {
-		if (pos == 0) {
-			this.shift(value);
-		} else if (pos == this.length) {
-			this.push(value);
-		} else {
-			LinkedListNode node = this.getNodeByPos(pos - 1);
-			LinkedListNode nodeToBeInsert = new LinkedListNode(value);
-			nodeToBeInsert.next = node.next;
-			node.next = nodeToBeInsert;
-			this.length++;
-		}
-	}
-
-	public void removeInNthPos(int pos) {
-		if (pos == 0) {
-			this.unshift();
-		} else if (pos == this.length) {
-			this.pop();
-		} else {
-			LinkedListNode node = this.getNodeByPos(pos - 1);
-			node.next = node.next.next;
-			this.length--;
-		}
-
-	}
-
-	public LinkedListNode getNodeByPos(int pos) {
+	public LinkedListNode lastNode() {
 		LinkedListNode currentNode = this.head;
-		if (pos > this.length)
-			throw new Error("position is greter than linkedList length");
-		for (int i = 1; i < pos; i++) {
+		while (currentNode.next != null) {
 			currentNode = currentNode.next;
 		}
 		return currentNode;
 	}
 
-//	----------------------------------------------------------------------------------
-	public static void traverse(LinkedListNode node) {
-		LinkedListNode currentNode = node;
-		if (currentNode == null) {
-			throw new Error("Linked list instantiated but does not have value");
+	public void addLast(int data) {
+		LinkedListNode node = new LinkedListNode(data);
+		if (this.head == null) {
+			this.head = node;
+		} else {
+			LinkedListNode lNode = lastNode();
+			lNode.next = node;
 		}
-		while (currentNode != null) {
-			System.out.println(currentNode.value);
-			currentNode = currentNode.next;
-		}
+		this.length++;
 	}
 
-//	-----------------------------------------------------------------------------------
-	public static LinkedListNode rotateList(LinkedListNode list) {
-//		list.toString();
-		if (list != null) {
-			LinkedListNode tempNode = null;
-			LinkedListNode currentNode = list;
-//			LinkedListNode temp = currentNode.next;
-			while (currentNode != null) {
-				LinkedListNode temp = currentNode.next;
-				currentNode.toString();
-				currentNode.next = tempNode;
-				tempNode = currentNode;
-				currentNode = temp;
-			}
-			return tempNode;
-
-		}
-		return list;
-	}
-
-	public static int searchNode(LinkedListNode head, int value) {
-		if (head != null) {
-			LinkedListNode currentNode = head;
-
-			while (currentNode != null) {
-				if (currentNode.value == value) {
-					return currentNode.value;
-				}
-				currentNode = currentNode.next;
-			}
-
-		}
-		return -1;
+	public static void main(String[] args) {
+		LinkedList l = new LinkedList();
+		l.insertBegin(10);
+		l.insertBegin(20);
+		l.addLast(50);
+		System.out.println(l);
 
 	}
 }
