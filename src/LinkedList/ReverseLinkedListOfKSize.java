@@ -21,16 +21,34 @@ public class ReverseLinkedListOfKSize {
 			}
 		return head=temp;
 	}
+	static LinkedListNode rotate(LinkedListNode head, int k) {
+        // add code here.
+		LinkedListNode tail=head;
+		LinkedListNode cur=head;
+        while(tail.next!=null){
+            tail=tail.next;
+        }
+        LinkedListNode temp=null;
+        while(k>0){
+            temp=cur;
+            cur=cur.next;
+            temp.next=null;
+            tail.next=temp;
+            tail=tail.next;
+            k--;
+        }
+        return cur;
+    }
 	public static void main(String[] args) {
 		LinkedList l = new LinkedList();
 		// TODO Auto-generated method stub
 		l.insertBegin(1);
-		l.insertBegin(2);
-		l.insertBegin(3);
-		l.addLast(50);
-		l.addLast(100);
-		System.out.println(l);
-		System.out.println(reverseLinkedListOfKSize(l.head, 4));
+		int [] arr= {2,3,4,5,6,7,8};
+		for(int i:arr) {
+			l.addLast(i);
+		}
+		System.out.println(l.head);
+		System.out.println(rotate(l.head,4));
 	}
 
 }

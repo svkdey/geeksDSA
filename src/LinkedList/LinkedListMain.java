@@ -291,18 +291,68 @@ public class LinkedListMain {
 		// making random connectn
 		for (RandomNode current = head; current != null; current = current.next.next) {
 			current.next.random = (current.random != null) ? current.random.next : null;
+			
 		}
 
 		// taking new random nodes only and completing the list
 		head = head.next;
 		RandomNode cur = head;
 
-		while (cur != null && cur.next != null && cur.next.next != null) {
-			cur.next = cur.next.next;
+		while (cur != null ) {
+			cur.next = cur.next!=null?cur.next.next:cur.next;
 			cur = cur.next;
 		}
 		return head;
 
+	}
+	static RandomNode clone(RandomNode start)  
+	{  
+		RandomNode curr = start, temp = null;  
+	  
+	    // insert additional node after  
+	    // every node of original list  
+	    while (curr != null)  
+	    {  
+	        temp = curr.next;  
+	  
+	        // Inserting node  
+	        curr.next = new RandomNode(curr.value);  
+	        curr.next.next = temp;  
+	        curr = temp;  
+	    }  
+	    curr = start;  
+	  
+	    // adjust the random pointers of the  
+	    // newly added nodes  
+	    while (curr != null)  
+	    {  
+	        if(curr.next != null)  
+	            curr.next.random = (curr.random != null) 
+	                      ? curr.random.next : curr.random;  
+	  
+	        // move to the next newly added node by  
+	        // skipping an original node  
+	        curr = (curr.next != null) ? curr.next.next  
+	                                        : curr.next;  
+	    }  
+	  
+	    RandomNode original = start, copy = start.next;  
+	  
+	    // save the start of copied linked list  
+	    temp = copy;  
+	  
+	    // now separate the original list and copied list  
+	    while (original != null && copy != null)  
+	    {  
+	        original.next = (original.next != null)?  
+	                    original.next.next : original.next;  
+	  
+	        copy.next = (copy.next != null) ? copy.next.next  
+	                                            : copy.next;  
+	        original = original.next;  
+	        copy = copy.next;  
+	    }  
+	    return temp;  
 	}
 
 	static boolean isPalindrome(LinkedListNode head) {
@@ -382,13 +432,17 @@ public class LinkedListMain {
 				pt2 = pt2.next;
 				i++;
 			} 
-			
-			LinkedListNode kthNodeFromFirst=pt2;
 			LinkedListNode pt1 = head;
 			while (pt2 != null) {
 				pt2 = pt2.next;
 				pt1 = pt1.next;
 			}
+			pt2=head;
+			while(k>1) {
+				pt2=pt2.next;
+				k--;
+			}
+			LinkedListNode kthNodeFromFirst=pt2;
 			LinkedListNode kthnodefromLast=pt1;
 			int temp=kthnodefromLast.data;
 			kthnodefromLast.data=kthNodeFromFirst.data;
@@ -405,6 +459,7 @@ public class LinkedListMain {
 		l.insertBegin(2);
 		l.insertBegin(3);
 		l.addLast(50);
+//		l.addLast(20);
 		LinkedList l1 = new LinkedList();
 		l1.insertBegin(1);
 		LinkedList l2 = new LinkedList();
@@ -425,8 +480,8 @@ public class LinkedListMain {
 		l5.insertBegin(5);
 		
 		
-		System.out.println(l5.head);
-		System.out.println(swapkthnode(l5.head,l5.length,4));
+		System.out.println(l.head);
+		System.out.println(swapkthnode(l.head,l.length,1));
 
 //		LinkedListNode anotherNode = NthNodeFromLastSol2(l.head, 2);
 //		LinkedListNode lastNode = l.lastNode();

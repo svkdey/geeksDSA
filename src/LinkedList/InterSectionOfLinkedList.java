@@ -1,6 +1,11 @@
 package LinkedList;
 
 public class InterSectionOfLinkedList {
+	/*1.get length of both LLs,let c1 and c2
+	 * 2.get c1-c2
+	 * 3.move higher length LL1 to c1-c2;
+	 * 4.now move LL1 to end as well as LL2 end. if value matches . u find the node
+	 * */
 	public static boolean interSectionPoint(LinkedListNode h1, LinkedListNode h2) {
 		int c1 = 0;
 		int c2 = 0;
