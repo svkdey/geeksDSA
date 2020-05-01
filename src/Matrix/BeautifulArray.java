@@ -1,6 +1,5 @@
 package Matrix;
 
-import Data.ArrayData;
 import Data.MatrixData;
 
 public class BeautifulArray {

@@ -50,7 +50,7 @@ public class MaxSumSubArray {
 //		int sumMinusminNormalValue = totalSum(arr, n) - minSumSubArray(arr, n);
 		
 		//approach 2 invert sign of each arr[i] then find maxSumSubArray(arr, n); then return -1*maxSumSubArray(arr, n)
-		int sumMinusminNormalValue = totalSum(arr, n) - minSumSubArrayTwo(arr, n);
+		int sumMinusminNormalValue = totalSum(arr, n) - minSumSubArrayApproach2(arr, n);
 		return Math.max(maxNormalValue, sumMinusminNormalValue);
 	}
 
@@ -73,7 +73,7 @@ public class MaxSumSubArray {
 		System.out.println(result);
 		return result;
 	}
-	public static int minSumSubArrayTwo(int[] arr, int n) {
+	public static int minSumSubArrayApproach2(int[] arr, int n) {
 		for(int i=0;i<arr.length;i++) {
 			arr[i]=-1*arr[i];
 		}

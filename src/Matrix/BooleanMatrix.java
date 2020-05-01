@@ -1,7 +1,5 @@
 package Matrix;
 
-import java.util.ArrayList;
-
 import Data.MatrixData;
 
 public class BooleanMatrix {

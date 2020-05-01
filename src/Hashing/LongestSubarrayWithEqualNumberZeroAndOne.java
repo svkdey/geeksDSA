@@ -1,7 +1,9 @@
 package Hashing;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class LongestSubarrayWithEqualNumberZeroAndOne {
 	static int longestSubarrayWithEqualNumberZeroAndOne(int arr[]) {

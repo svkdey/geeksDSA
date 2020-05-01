@@ -22,9 +22,10 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 				if (arr[j] > arr[i]) {
 					// profit btwn j and i transaction + profit btwn start to i-1 transaction +
 					// profit btwn j+1 to end transaction
+					
 					currentProfit = arr[j] - arr[i] + SellAndBuyStockProblemtoGetMaxprofit(arr, start, i - 1)
 							+ SellAndBuyStockProblemtoGetMaxprofit(arr, j + 1, end);
-
+					
 					profit = Math.max(currentProfit, profit);
 				}
 			}

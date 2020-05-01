@@ -15,9 +15,10 @@ public class SearchInSortedMatrix {
 		}
 		System.out.println("not found");
 	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		search(new int[][] {{18 ,21 ,27 ,38 ,55 ,67}},55);
 	}
 
 }

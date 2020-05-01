@@ -1,11 +1,8 @@
 package Hashing;
 
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
+import java.util.Map;
+import java.util.TreeMap;
 
-import Arrayproblems.ArrayPreoblems;
 import Data.ArrayData;
 
 public class PrintRelativeSortingArr {

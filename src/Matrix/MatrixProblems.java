@@ -1,7 +1,5 @@
 package Matrix;
 
-import Data.ArrayData;
-import Data.Data;
 import Data.MatrixData;
 
 public class MatrixProblems {
@@ -146,7 +144,7 @@ public class MatrixProblems {
 
 	static void lowertrianglePrint(int arr[][]) {
 		int n = arr.length;
-		int m = arr[0].length;
+//		int m = arr[0].length;
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j <= i; j++) {
