@@ -37,7 +37,7 @@ public class LaxiographicRank {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(findRank("BAA"));
+		System.out.println(findRank("string"));
 
 	}
 

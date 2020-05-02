@@ -11,4 +11,6 @@ public class ArrayData {
 	public static int[] relativeSortArr2= {2 ,1, 8, 3 };
 	public static int[] relativeSortArr3= {9, 8 ,5 ,0, 3, 8, 9, 0};
 	public static int[] relativeSortArr4= {0,9 };
+	public static int[] majority= {6 ,1 ,15, 19, 9, 13, 12, 6, 7, 2, 10, 4, 1, 14, 11, 14, 14, 13};
+	
 }

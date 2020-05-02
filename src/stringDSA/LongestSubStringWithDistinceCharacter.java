@@ -57,10 +57,10 @@ public class LongestSubStringWithDistinceCharacter {
 		int result = 0;
 		int[] visited = new int[256];
 		Arrays.fill(visited, -1);
-		int i=0;
+		int idxValue=0;
 		for(int j=0;j<str.length();j++) {
-			i=Math.max(i, visited[(int)str.charAt(j)]+1);
-			int maxEnd=j-i+1;
+			idxValue=Math.max(idxValue, visited[(int)str.charAt(j)]+1);
+			int maxEnd=j-idxValue+1;
 			result=Math.max(result, maxEnd);
 			visited[(int)str.charAt(j)]=j;
 		}

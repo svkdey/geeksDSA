@@ -83,10 +83,21 @@ public class StringDSAMain {
 
 	}
 
+	static void rotateStringNTimes(String s,int n) {
+//		System.out.println(s.substring(n)+s.substring(0,n));
+		System.out.println(s.substring(s.length()-n)+s.substring(0,s.length()-n));
+		
+	}
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 //		System.out.println(isAnagram("geeks", "kegse"));
-		System.out.println(leftRepeatingCharacterThatDoesNotReapeat("feggs"));
+//		System.out.println(leftRepeatingCharacterThatDoesNotReapeat("feggs"));
+		String s="abcabc";
+		String s1="abd";
+//		System.out.println(s.contains(s1));
+		rotateStringNTimes("AMAZON", 2);
+		
 	}
 
 }

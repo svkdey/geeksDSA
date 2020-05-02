@@ -52,7 +52,7 @@ public class MergeTwoSortedLL {
 		l2.addLast(500);
 		System.out.println("I/p ==> " + l2);
 //		System.out.println(mergeTwoSortedLL(l1.head,l2.head));
-		System.out.println(sortedMerger(l1.head, l2.head));
+
 
 	}
 
