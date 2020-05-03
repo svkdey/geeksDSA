@@ -30,7 +30,7 @@ public class RabinKarpSearch {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		simplerabinKarpSearch("ABABCABCDEFGHICABabcEFG","ABC");
+		simplerabinKarpSearch("aabaacaadaabaaba","aaba");
 	}
 
 }

@@ -1,7 +1,7 @@
 package LinkedList;
 
 public class LinkedListNode {
-	int data;
+	public int data=Integer.MIN_VALUE;
 	public LinkedListNode next;
 
 	public LinkedListNode() {

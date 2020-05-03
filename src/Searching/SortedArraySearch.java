@@ -1,5 +1,7 @@
 package Searching;
 
+import Data.ArrayData;
+
 public class SortedArraySearch {
 	public static int sortedArrayProblem(int[] arr, int x, int high, int low) {
 		if (low > high) {
@@ -80,8 +82,7 @@ public class SortedArraySearch {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(findOccuranceOfX(new int[] { 0, 0, 1, 1, 1, 1 }, 1, 5, 0));
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package Queue;
+package QueueDSA;
 
 public class QueueByArray {
 	

@@ -12,5 +12,10 @@ public class ArrayData {
 	public static int[] relativeSortArr3= {9, 8 ,5 ,0, 3, 8, 9, 0};
 	public static int[] relativeSortArr4= {0,9 };
 	public static int[] majority= {6 ,1 ,15, 19, 9, 13, 12, 6, 7, 2, 10, 4, 1, 14, 11, 14, 14, 13};
+	public static int[] findInd= {1,1,2,2,4,5,5};
+	public static int[] REV_BINARY= {8,6,5,4,3,1};
+	public static int[] REV_BINARY_FINDIDX= {1,1,1};
+	public static long[] findFloor= {1 ,2, 8 ,10 ,11 ,12, 19};
+	public static int[] findOccur= {1,2,3,4,4,4,6};
 	
 }

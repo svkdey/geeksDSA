@@ -55,15 +55,22 @@ public class KMNalgorithm {
 		int i = 0, j = 0, N = text.length(), M = ptr.length();
 
 		while (i < N) {
+			//matching and moving
 			if (ptr.charAt(j) == text.charAt(i)) {
 				i++;
 				j++;
 			}
+			//whole string matched?
+			//if yes print and reset the j pointer to last of the lps array
 			if (j == M) {
 				System.out.println(i - j);
 				j = lps[j - 1];
 
-			} else if (i < N && ptr.charAt(j) != text.charAt(i)) {
+			} 
+			// go on if not match.
+			//j==0 i to next index
+			//if j not 0,find last matching index with i or just move on
+			else if (i < N && ptr.charAt(j) != text.charAt(i)) {
 				if (j == 0) {
 					i++;
 				} else {
