@@ -1,11 +1,13 @@
 package StackDSA;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StackImplByArray {
 	private int arr[] = null;
 	private int top = -1;
 	private int size;
+	ArrayList<Integer> aux = null;
 
 	public int getSize() {
 		return size;
@@ -35,14 +37,20 @@ public class StackImplByArray {
 		super();
 		this.size = size;
 		this.arr = new int[size];
+		this.aux = new ArrayList<Integer>(size);
 	}
 
 	public void push(int data) {
 		if (top == this.size - 1) {
 			System.out.println("Stack is full");
 		} else {
+
 			top++;
 			arr[top] = data;
+			if (top > 0) {
+
+			}
+
 		}
 
 	}
@@ -53,7 +61,7 @@ public class StackImplByArray {
 			return -1;
 		}
 		int val = arr[top];
-		arr[top]=-1;
+		arr[top] = -1;
 		top--;
 		return val;
 	}
@@ -91,9 +99,6 @@ public class StackImplByArray {
 //		stack.push(5);
 //		stack.push(10);
 
-
-
-	
 		System.out.println(stack.isEmpty());
 		System.out.println(stack.stackSize());
 //		while (!stack.isEmpty()) {
