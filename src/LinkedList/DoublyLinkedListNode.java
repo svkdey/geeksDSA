@@ -1,9 +1,9 @@
 package LinkedList;
 
 public class DoublyLinkedListNode {
-	int data;
-	DoublyLinkedListNode next;
-	DoublyLinkedListNode prev;
+	public int data;
+	public DoublyLinkedListNode next;
+	public DoublyLinkedListNode prev;
 	
 	public DoublyLinkedListNode() {
 		// TODO Auto-generated constructor stub

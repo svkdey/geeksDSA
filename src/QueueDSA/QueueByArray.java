@@ -63,13 +63,14 @@ public class QueueByArray {
 	public static void main(String[] args) {
 		QueueByArray q=new QueueByArray(5);
 		q.push(10);
-//		q.pop();
-		q.push(100);
-		System.out.println(q);
-		System.out.println(q.size());
 		System.out.println(q.pop());
 		System.out.println(q.pop());
-		System.out.println(q.pop());
+//		q.push(100);
+//		System.out.println(q);
+//		System.out.println(q.size());
+//		System.out.println(q.pop());
+//		System.out.println(q.pop());
+//		System.out.println(q.pop());
 //		System.out.println(q.size());
 //	
 //		
