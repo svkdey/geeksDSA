@@ -20,6 +20,27 @@ public class StockSpanPrblem {
 			System.out.println(span);
 		}
 	}
+	
+	// my solution
+	public static void calculateSpan(int price[], int n, int S[])
+    {
+        // Your code here
+        Stack<Integer> s=new Stack<Integer>();
+        Stack<Integer> sp=new Stack<Integer>();
+        s.push(price[0]);
+        sp.push(1);
+        S[0]=1;
+        for(int i=1;i<price.length;i++){
+            int span=1;
+            while(!s.isEmpty()&&price[i]>=s.peek()){
+                span+=sp.pop();
+                s.pop();
+            }
+            s.push(price[i]);
+            sp.push(span);
+            S[i]=span;
+        }
+    }
 
 	/*
 	 * idea is to find immediate greater element on left hand side of the element .
@@ -31,6 +52,8 @@ public class StockSpanPrblem {
 		//push 1st element's index
 		s.push(0);
 		for (int i = 0; i < arr.length; i++) {
+			//
+			System.out.println("stack ===>"+ s);
 			//check if empty or not as we need to access the top
 			//if arr[top]<arr[i] ,pop out until arr[i]>arr[top]
 			//else span i-stackTopValue ie index of last push value;

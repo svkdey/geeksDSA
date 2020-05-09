@@ -8,7 +8,7 @@ import Data.TreeData;
 
 public class BinaryTree {
 	TreeNode root;
-
+	int arr[]=null;
 //Constructor
 	public BinaryTree() {
 	}
@@ -99,7 +99,9 @@ public class BinaryTree {
 //		TreeDSAmethods.leftHandSideOfTreeItarative(TreeData.getATree());
 //		System.out.println(TreeMediumProblems.childSumPropertyRecusive(TreeData.getChildSumPropertyTree()));
 		
+	
+//		TreeMediumProblems.spriralOrderTraversal(TreeData.getATree());
+		System.out.println(TreeMediumProblems.lowestCommonAnsistors(TreeData.getATree(),70,50).data);
 		
-		TreeMediumProblems.spriralOrderTraversal(TreeData.getATree());
 	}
 }

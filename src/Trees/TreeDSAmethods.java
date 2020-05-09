@@ -6,6 +6,36 @@ import java.util.Queue;
 public class TreeDSAmethods {
 	private static int maxLvl = 0;
 
+	public static int countBinary(TreeNode root) {
+		if (root == null)
+			return 0;
+		return 1 + countBinary(root.left) + countBinary(root.right);
+	}
+
+//o(log n * log n)
+	public static int countBinaryIfPerfectTree(TreeNode root) {
+		if (root == null)
+			return 0;
+		int lh = 0, rh = 0;
+		TreeNode node = root;
+
+		if (node != null) {
+			lh++;
+			node = node.left;
+		}
+		node = root;
+		if (node != null) {
+			rh++;
+			node = node.right;
+		}
+		if (lh == rh) {
+			return (int) (Math.pow(2, lh) - 1);
+		} else {
+			return 1 + countBinaryIfPerfectTree(root.left) + countBinaryIfPerfectTree(root.right);
+		}
+
+	}
+
 	public static void LVLOrderLineByline(TreeNode root) {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		if (root == null) {
@@ -95,7 +125,8 @@ public class TreeDSAmethods {
 			return Integer.MIN_VALUE;
 		// return max (parent,child) recursively
 		else
-			return Math.max(root.data, Math.max(maxInTreeRecusiveSoultion(root.left), maxInTreeRecusiveSoultion(root.right)));
+			return Math.max(root.data,
+					Math.max(maxInTreeRecusiveSoultion(root.left), maxInTreeRecusiveSoultion(root.right)));
 	}
 
 	// o(n) o(h)

@@ -1,5 +1,6 @@
 package Trees;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -110,6 +111,98 @@ public class TreeMediumProblems {
 				i++;
 			}
 		}
+
+	}
+
+	public static int maxWidthOfTree(TreeNode root) {
+		if (root == null)
+			return 0;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		int count = 0;
+		while (!q.isEmpty()) {
+			int size = q.size();
+			count = Math.max(count, size);
+
+			for (int i = 0; i < size; i++) {
+				TreeNode node = q.remove();
+
+				if (node.left != null) {
+					q.add(node.left);
+				}
+				if (node.right != null) {
+					q.add(node.right);
+				}
+			}
+
+		}
+		return count;
+	}
+
+	// get diameter of root by 1+lh+rh
+	// get diameter left and right tree
+	// get max of (root,left,right ) diameter
+
+	// observe we compute up then going down to left tree and right tree
+	public static int diameterOfTree(TreeNode root) {
+		if (root == null)
+			return 0;
+
+		int lH = TreeDSAmethods.heightOfBinaryTree(root.left);
+		int rH = TreeDSAmethods.heightOfBinaryTree(root.right);
+		int dRoot = 1 + lH + rH;
+		int dLeft = diameterOfTree(root.left);
+		int dRight = diameterOfTree(root.right);
+		return Math.max(dRoot, Math.max(dLeft, dRight));
+	}
+
+	// efficient solution
+
+	public static int resOfDiameterProblem = 0;
+
+	public static int diameterOfTreeSolution(TreeNode root) {
+		if (root == null)
+			return 0;
+
+		int lH = TreeDSAmethods.heightOfBinaryTree(root.left);
+		int rH = TreeDSAmethods.heightOfBinaryTree(root.right);
+		int dRoot = 1 + lH + rH;
+
+		resOfDiameterProblem = Math.max(resOfDiameterProblem, 1 + lH + rH);
+		return 1 + Math.max(lH, rH);
+	}
+
+//most important code of tree
+	static boolean findPath(TreeNode node, int i, ArrayList<TreeNode> arr) {
+		if (node == null) {
+			return false;
+		}
+		arr.add(node);
+		if (node.data == i)
+			return true;
+		if (findPath(node.left, i, arr) || findPath(node.right, i, arr)) {
+			return true;
+		}
+		arr.remove(arr.size() - 1);
+		return false;
+	}
+
+	public static TreeNode lowestCommonAnsistors(TreeNode root, int n1, int n2) {
+		if (root == null)
+			return null;
+		ArrayList<TreeNode> path1 = new ArrayList<TreeNode>();
+		ArrayList<TreeNode> path2 = new ArrayList<TreeNode>();
+
+		if (findPath(root, n1, path1) == false || findPath(root, n2, path2) == false) {
+			return null;
+		}
+//		TreeNode path2[] = new TreeNode[100];
+		for (int i = 0; i < path1.size() && i < path2.size(); i++) {
+			if (path1.get(i + 1) != path2.get(i + 1)) {
+				return path1.get(i);
+			}
+		}
+		return null;
 
 	}
 
