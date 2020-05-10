@@ -8,7 +8,8 @@ import Data.TreeData;
 
 public class BinaryTree {
 	TreeNode root;
-	int arr[]=null;
+	int arr[] = null;
+
 //Constructor
 	public BinaryTree() {
 	}
@@ -88,20 +89,20 @@ public class BinaryTree {
 		}
 	}
 
-	
 	public static void main(String[] args) {
 
-		System.out.println(TreeData.getATree());
+//		System.out.println(TreeData.getATree());
 		BinaryTree tree = new BinaryTree();
 		ArrayList<Integer> res = new ArrayList<Integer>();
 //		TreeDSAmethods.LVLOrderLineBylineSolutionTwo(TreeData.getATree());
 //		TreeDSAmethods.printKthLvlInBinaryTreeByRecusion(TreeData.getATree(), 1);
 //		TreeDSAmethods.leftHandSideOfTreeItarative(TreeData.getATree());
 //		System.out.println(TreeMediumProblems.childSumPropertyRecusive(TreeData.getChildSumPropertyTree()));
-		
-	
+
 //		TreeMediumProblems.spriralOrderTraversal(TreeData.getATree());
-		System.out.println(TreeMediumProblems.lowestCommonAnsistors(TreeData.getATree(),70,50).data);
-		
+//		System.out.println(TreeMediumProblems.lowestCommonAnsistors(TreeData.getATree(),70,50).data);
+		SerializeAndDeserializeOfTree.serialize(TreeData.getATree(), res);
+		System.out.println(res);
+		System.out.println(SerializeAndDeserializeOfTree.deserialize(res));
 	}
 }
