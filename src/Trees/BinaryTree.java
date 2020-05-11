@@ -101,8 +101,13 @@ public class BinaryTree {
 
 //		TreeMediumProblems.spriralOrderTraversal(TreeData.getATree());
 //		System.out.println(TreeMediumProblems.lowestCommonAnsistors(TreeData.getATree(),70,50).data);
-		SerializeAndDeserializeOfTree.serialize(TreeData.getATree(), res);
-		System.out.println(res);
-		System.out.println(SerializeAndDeserializeOfTree.deserialize(res));
+//		SerializeAndDeserializeOfTree.serialize(TreeData.getATree(), res);
+//		System.out.println(res);
+//		System.out.println(SerializeAndDeserializeOfTree.deserialize(res));
+//		System.out.println(TreeMediumProblems.isIdentical(TreeData.getATree(), TreeData.getChildSumPropertyTree()));
+	System.out.println(TreeData.getATree());
+	TreeDSAmethods.insert(TreeData.getATree(), 200);
+	System.out.println(TreeDSAmethods.deleteNode(TreeData.getATree(), 40));
+//	System.out.println(TreeData.getATree());
 	}
 }

@@ -6,6 +6,83 @@ import java.util.Queue;
 public class TreeDSAmethods {
 	private static int maxLvl = 0;
 
+	public static void insert(TreeNode root, int value) {
+		TreeNode node=root;
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(node);
+		while (!queue.isEmpty()) {
+			TreeNode n = queue.remove();
+
+			if (n.left != null) {
+				queue.add(n.left);
+			} else {
+				n.left = new TreeNode(value);
+				break;
+			}
+			if (n.right != null) {
+				queue.add(n.right);
+			} else {
+				n.right = new TreeNode(value);
+				break;
+			}
+		}
+		System.out.println(root);
+	}
+
+	public static TreeNode deleteNode(TreeNode root, int value) {
+		if (root == null)
+			return null;
+		if (root.data == value)
+			return root = null;
+		TreeNode node = root;
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(node);
+		TreeNode n = null;
+		TreeNode current = null;
+		while (!queue.isEmpty()) {
+			n = queue.remove();
+			if (n.data == value) {
+				current = n;
+			}
+			if (n.left != null) {
+				queue.add(n.left);
+			}
+			if (n.right != null) {
+				queue.add(n.right);
+			}
+		}
+		current.data = n.data;
+		deleteTheExtremeNode(root, n);
+		return node;
+	}
+
+	public static void deleteTheExtremeNode(TreeNode node, TreeNode nodeTobeDlted) {
+
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(node);
+
+		while (!queue.isEmpty()) {
+			TreeNode n = queue.remove();
+			if (n.left != null) {
+				if (n.left == nodeTobeDlted) {
+					n.left = null;
+					n = null;
+					break;
+				} else
+					queue.add(n.left);
+			}
+			if (n.right != null) {
+				if (n.right == nodeTobeDlted) {
+					n.right = null;
+					n = null;
+					break;
+				} else
+					queue.add(n.right);
+			}
+		}
+
+	}
+
 	public static int countBinary(TreeNode root) {
 		if (root == null)
 			return 0;
