@@ -20,5 +20,13 @@ public class TreeData {
 		root.right.right = new TreeNode(7);
 		return root;
 	}
+	public static TreeNode getBinarySearchPropertyTree() {
+		TreeNode root = new TreeNode(20);
+		root.left = new TreeNode(8);
+		root.right = new TreeNode(22);
+		root.left.left = new TreeNode(5);
+//		root.left.right = new TreeNode(7);
+		return root;
+	}
 
 }
