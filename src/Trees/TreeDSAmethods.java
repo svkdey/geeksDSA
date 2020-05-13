@@ -296,5 +296,6 @@ public class TreeDSAmethods {
 	public static void printLeftSideOnly(TreeNode root) {
 		leftHandSideOfTree(root, 1);
 	}
+	
 
 }

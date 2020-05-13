@@ -1,10 +1,5 @@
 package Arrayproblems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-
 public class MajorityElement {
 	// naive solution :an element in array will be called majority if it's frequency
 	// of occurance is n/2;

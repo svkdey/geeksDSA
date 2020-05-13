@@ -2,8 +2,6 @@ package Hashing;
 
 import java.util.ArrayList;
 
-import Data.ArrayData;
-
 public class HashingImpl {
 	public static void separateChaining(int arr[], int n, ArrayList<ArrayList<Integer>> hashTable, int hashSize) {
 		// Your code here

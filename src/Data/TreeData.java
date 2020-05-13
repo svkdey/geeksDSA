@@ -24,6 +24,7 @@ public class TreeData {
 		TreeNode root = new TreeNode(20);
 		root.left = new TreeNode(8);
 		root.right = new TreeNode(22);
+		root.right.left = new TreeNode(21);
 		root.left.left = new TreeNode(5);
 //		root.left.right = new TreeNode(7);
 		return root;

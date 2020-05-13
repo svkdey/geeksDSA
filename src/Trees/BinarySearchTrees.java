@@ -92,9 +92,14 @@ public class BinarySearchTrees {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(TreeData.getBinarySearchPropertyTree());
-		TreeDSAmethods.LVLOrderLineBylineSolutionTwo(TreeData.getBinarySearchPropertyTree());
-		System.out.println(insertIntoBinaryTreeRecusive(TreeData.getBinarySearchPropertyTree(), 3));
-		System.out.println(BTSproblems.findCiel(TreeData.getBinarySearchPropertyTree(),34));
+//		TreeDSAmethods.LVLOrderLineBylineSolutionTwo(TreeData.getBinarySearchPropertyTree());
+//		System.out.println(insertIntoBinaryTreeRecusive(TreeData.getBinarySearchPropertyTree(), 3));
+//		BSTproblems.findKthSmallestNode(TreeData.getBinarySearchPropertyTree(),3);
+//		int arr[]= {2,8,30,15,25,12};
+//		BTSproblems.ceilingOnLeftSide(arr, arr.length);
+//		System.out.println("Solution "+BSTproblems.fixTheBSTwithSwappedNode(TreeData.getBinarySearchPropertyTree()));
+//		BSTproblems.getSumPairTwo(TreeData.getBinarySearchPropertyTree(), 30);
+		BSTproblems.getVerticalSumRecusive(TreeData.getBinarySearchPropertyTree());
 	}
 
 }

@@ -61,7 +61,7 @@ public class LongestSubarrayWithEqualNumberZeroAndOne {
 		
       	HashSet<Integer> s = new HashSet<Integer>();
       	ArrayList<Integer> l=new ArrayList<>();
-      	int j=0;
+      	
       	for(int i=0;i<arr.length;i++) {
       		s.add(arr[i]);
       		if(arr[i]>0) {

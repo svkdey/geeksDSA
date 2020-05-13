@@ -1,10 +1,8 @@
 package Arrayproblems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class GeeksExercise {
 	public static int majorityWins(int arr[], int n, int x, int y) {

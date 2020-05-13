@@ -40,7 +40,7 @@ Testcase 3: Sum of elements from 1st to 4th position is 15.
 
 class SubArraySum {
 
-	// Function to find subarray with given sum
+	// Function to find sub array with given sum
 	static void subarraySum(int n, int s, int[] arr) {
 
 		// Your code here
