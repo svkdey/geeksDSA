@@ -3,10 +3,12 @@ package Trees;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.Queue;
-import java.util.TreeMap;;
+import java.util.TreeMap;
+import Trees.Pair;
 
 public class TreeMediumProblems {
 	public static boolean childSumProperty(TreeNode root) {
@@ -161,18 +163,25 @@ public class TreeMediumProblems {
 
 	// efficient solution
 
-	public static int resOfDiameterProblem = 0;
+	/* Complete the function to get diameter of a binary tree */
+	int dia = 0;
 
-	public static int diameterOfTreeSolution(TreeNode root) {
+	public int util(TreeNode root) {
 		if (root == null)
 			return 0;
 
-		int lH = TreeDSAmethods.heightOfBinaryTree(root.left);
-		int rH = TreeDSAmethods.heightOfBinaryTree(root.right);
-		int dRoot = 1 + lH + rH;
+		int l = util(root.left); // height of left subtree
+		int r = util(root.right); // height of right subtree
 
-		resOfDiameterProblem = Math.max(resOfDiameterProblem, 1 + lH + rH);
-		return 1 + Math.max(lH, rH);
+		if (l + r + 1 > dia)
+			dia = l + r + 1; // l+r+1 is a possible max dia
+
+		return 1 + Math.max(l, r); // returning height of subtree
+	}
+
+	public int maXdiameter(TreeNode root) {
+		util(root);
+		return dia;
 	}
 
 //most important code of tree
@@ -199,7 +208,7 @@ public class TreeMediumProblems {
 		if (findPath(root, n1, path1) == false || findPath(root, n2, path2) == false) {
 			return null;
 		}
-//		TreeNode path2[] = new TreeNode[100];
+
 		for (int i = 0; i < path1.size() && i < path2.size(); i++) {
 			if (path1.get(i + 1) != path2.get(i + 1)) {
 				return path1.get(i);
@@ -222,62 +231,171 @@ public class TreeMediumProblems {
 				&& isIdentical(root1.right, root2.right);
 
 	}
-	class Pair{
+
+	class Pair {
 		TreeNode node;
 		int horizontalLevel;
+
 		public Pair(TreeNode node, int horizontalLevel) {
 			this.node = node;
 			this.horizontalLevel = horizontalLevel;
 		}
-		
+
 	}
 
 	public static TreeMap<Integer, ArrayList<Integer>> verticalOrderTraversal(TreeNode root) {
-		if(root==null) return null;
-		
-		TreeMap<Integer, ArrayList<Integer>> hm=new TreeMap<Integer, ArrayList<Integer>>();
-		int hLevel=0;
-		Queue<Trees.Pair> queue=new LinkedList<Trees.Pair>();
+		if (root == null)
+			return null;
+
+		TreeMap<Integer, ArrayList<Integer>> hm = new TreeMap<Integer, ArrayList<Integer>>();
+		int hLevel = 0;
+		Queue<Trees.Pair> queue = new LinkedList<Trees.Pair>();
 		queue.add(new Trees.Pair(root, hLevel));
-		
-		while(!queue.isEmpty()) {
-			Trees.Pair nodepair=queue.remove();
-			hLevel=nodepair.horizontalLevel;
-			TreeNode node=nodepair.node;
-			
-			
-			if(hm.containsKey(hLevel)) {
-				ArrayList<Integer> listOfNodeInhLevel=hm.get(hLevel);
+
+		while (!queue.isEmpty()) {
+			Trees.Pair nodepair = queue.remove();
+			hLevel = nodepair.horizontalLevel;
+			TreeNode node = nodepair.node;
+
+			if (hm.containsKey(hLevel)) {
+				ArrayList<Integer> listOfNodeInhLevel = hm.get(hLevel);
 				listOfNodeInhLevel.add(node.data);
 				hm.put(hLevel, listOfNodeInhLevel);
-			}else {
-				ArrayList<Integer> listOfNodeInhLevel=new ArrayList<Integer>();
+			} else {
+				ArrayList<Integer> listOfNodeInhLevel = new ArrayList<Integer>();
 				listOfNodeInhLevel.add(node.data);
 				hm.put(hLevel, listOfNodeInhLevel);
 			}
-			
-			if(node.left!=null) {
-				queue.add(new Trees.Pair(node.left, hLevel-1));
+
+			if (node.left != null) {
+				queue.add(new Trees.Pair(node.left, nodepair.horizontalLevel - 1));
 			}
-			if(node.right!=null) {
-				queue.add(new Trees.Pair(node.right, hLevel+1));
+			if (node.right != null) {
+				queue.add(new Trees.Pair(node.right, nodepair.horizontalLevel + 1));
 			}
 		}
 		return hm;
-		
+
 	}
-	public static void topViewOfBinaryTree(TreeNode root){
-		if(root ==null) return ;
-		TreeMap<Integer, ArrayList<Integer>> hm=verticalOrderTraversal(root);
-		for(Entry<Integer, ArrayList<Integer>> s:hm.entrySet()) {
-			System.out.print(s.getValue().get(0)+" ");
+
+	public static void topViewOfBinaryTree(TreeNode root) {
+		if (root == null)
+			return;
+		TreeMap<Integer, ArrayList<Integer>> hm = verticalOrderTraversal(root);
+		for (Entry<Integer, ArrayList<Integer>> s : hm.entrySet()) {
+			System.out.print(s.getValue().get(0) + " ");
 		}
 	}
-	public static void bottomViewOfBinaryTree(TreeNode root){
-		if(root ==null) return ;
-		TreeMap<Integer, ArrayList<Integer>> hm=verticalOrderTraversal(root);
-		for(Entry<Integer, ArrayList<Integer>> s:hm.entrySet()) {
-			System.out.print(s.getValue().get(s.getValue().size()-1)+" ");
+
+	public static void bottomViewOfBinaryTree(TreeNode root) {
+		if (root == null)
+			return;
+		TreeMap<Integer, ArrayList<Integer>> hm = verticalOrderTraversal(root);
+		for (Entry<Integer, ArrayList<Integer>> s : hm.entrySet()) {
+			int sizeOfArray = s.getValue().size();
+			System.out.print(s.getValue().get(sizeOfArray - 1) + " ");
 		}
+	}
+
+	void mirror(TreeNode node) {
+		// Your code here
+		if (node == null)
+			return;
+		mirror(node.left);
+		mirror(node.right);
+
+		TreeNode temp = node.left;
+		node.left = node.right;
+		node.right = temp;
+	}
+
+	// find both the tree are identical
+	boolean indeticalTree(TreeNode node1, TreeNode node2) {
+		if (node1 == null && node2 == null) {
+			return true;
+		}
+		if (node1 != null && node2 != null) {
+			return node1.data == node2.data && indeticalTree(node1.left, node2.left)
+					&& indeticalTree(node1.right, node2.right);
+		}
+		return false;
+	}
+
+//if tree is symmtric if two root1.data==root2.data and their leftTree == rightTree and rightTree==leftTree
+	boolean isSymetricTree(TreeNode root) {
+		return isSymetricTreeHelper(root, root);
+	}
+
+	boolean isSymetricTreeHelper(TreeNode root1, TreeNode root2) {
+		if (root1 == null && root2 == null) {
+			return true;
+		}
+		if (root1 != null && root2 != null) {
+			return root1.data == root2.data && isSymetricTreeHelper(root1.left, root2.right)
+					&& isSymetricTreeHelper(root1.right, root2.left);
+		}
+		return false;
+	}
+
+	public static int verticalWidth(TreeNode root) {
+		// Add your code here.
+		if (root == null)
+			return 0;
+		HashSet<Integer> hs = new HashSet<>();
+
+		Queue<Trees.Pair> q = new LinkedList<>();
+		q.add(new Trees.Pair(root, 0));
+		while (!q.isEmpty()) {
+			Trees.Pair p = q.remove();
+			TreeNode n = p.node;
+			int l = p.horizontalLevel;
+			// System.out.print(l);
+			hs.add(l);
+			if (n.left != null) {
+				q.add(new Trees.Pair(n.left, p.horizontalLevel - 1));
+			}
+			if (n.right != null) {
+				q.add(new Trees.Pair(n.right, p.horizontalLevel + 1));
+			}
+
+		}
+		// System.out.print(hs);
+		return hs.size();
+
+	}
+
+	
+
+	public static boolean isSubtree(TreeNode T, TreeNode S) {
+		// add code here.
+
+		if (S == null)  
+            return true; 
+   
+        if (T == null) 
+            return false; 
+   
+        /* Check the tree with root as current node */
+        if (isSubtreeHelper(T, S))  
+            return true; 
+   
+        /* If the tree with root as current node doesn't match then 
+           try left and right subtrees one by one */
+        return isSubtree(T.left, S) 
+                || isSubtree(T.right, S);
+	}
+
+
+
+	public static boolean isSubtreeHelper(TreeNode T, TreeNode S) {
+		// add code here.
+		if (T == null && S == null) {
+			return true;
+		}
+		if (T != null && S != null) {
+			return T.data == S.data && isSubtreeHelper(T.left, S.left) && isSubtreeHelper(T.right, S.right);
+		}
+		return false;
+
 	}
 }

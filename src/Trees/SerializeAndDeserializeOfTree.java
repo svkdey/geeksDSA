@@ -3,7 +3,7 @@ package Trees;
 import java.util.ArrayList;
 
 import Data.TreeData;
-
+//note marking null as -1 is important
 public class SerializeAndDeserializeOfTree {
 	static void serialize(TreeNode root, ArrayList<Integer> arr) {
 		if (root == null) {

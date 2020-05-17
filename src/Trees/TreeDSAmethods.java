@@ -7,7 +7,7 @@ public class TreeDSAmethods {
 	private static int maxLvl = 0;
 
 	public static void insert(TreeNode root, int value) {
-		TreeNode node=root;
+		TreeNode node = root;
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		queue.add(node);
 		while (!queue.isEmpty()) {
@@ -296,6 +296,26 @@ public class TreeDSAmethods {
 	public static void printLeftSideOnly(TreeNode root) {
 		leftHandSideOfTree(root, 1);
 	}
-	
+
+	static int c = 0;
+
+	int countSubtreesWithSumX(TreeNode root, int x) {
+		// Add your code here.
+//		int c=0;
+		countUtil(root, x);
+		int count = c;
+		c = 0;
+		return (count);
+	}
+
+	int countUtil(TreeNode node, int x) {
+		if (node == null)
+			return 0;
+		int val = node.data + countUtil(node.left, x) + countUtil(node.right, x);
+		if (val == x) {
+			c++;
+		}
+		return val;
+	}
 
 }
