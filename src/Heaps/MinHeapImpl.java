@@ -71,19 +71,24 @@ public class MinHeapImpl {
 	int getMinValue() {
 		return this.arr[0];
 	}
-
+//remove the minvalue of the minHeap ie arr[0]
 	int extractMin() {
+		//check empty?
 		if (this.size == 0) {
 			return -1;
 		}
+		//check only one element?
 		if (this.size == 1) {
 			this.size--;
 			return arr[0];
 		}
+		
 		int minVal = this.arr[0];
+		//swap with last element in heap and make arr[last] =-1 ;size--; 
 		swap(this.arr, 0, this.size - 1);
 		this.arr[this.size - 1] = -1;
 		this.size--;
+		//do heapfy around 0 to maintain minHeap
 		heapify(0);
 		return minVal;
 	}
