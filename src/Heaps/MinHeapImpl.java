@@ -115,7 +115,7 @@ public class MinHeapImpl {
 	
 	void buildHeap(int arr[]) {
 		this.arr=arr;
-		for(int i=((arr.length-1)-1)/2;i>=0;i--) {
+		for(int i=((arr.length-1)/2)-1;i>=0;i--) {
 			heapify(i);
 		}
 	}
