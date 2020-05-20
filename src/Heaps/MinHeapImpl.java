@@ -20,7 +20,7 @@ public class MinHeapImpl {
 	}
 
 	static int getRight(int index) {
-		return 2 * index + 1;
+		return 2 * index + 2;
 	}
 
 	static int getParent(int index) {
