@@ -49,10 +49,11 @@ public class MinHeapImpl {
 	}
 
 //time :o(ln n) space:o(h)
-	void heapify(int i) {
+	//heapify Is a method that makes the idx and it's child to maintain heap property
+	void heapify(int idx) {
 		int left = getLeft(i), right = getRight(i);
 		// considering smallest is i at first;
-		int smallest = i;
+		int smallest = idx;
 		// check who is smallest among i,left ,right
 		if (left < this.size && arr[i] > arr[left]) {
 			smallest = left;
@@ -61,8 +62,8 @@ public class MinHeapImpl {
 			smallest = right;
 		}
 		// if not i then swap and pass the new index to heapify
-		if (smallest != i) {
-			swap(this.arr, smallest, i);
+		if (smallest != idx) {
+			swap(this.arr, smallest, idx);
 			heapify(smallest);
 		}
 	}
