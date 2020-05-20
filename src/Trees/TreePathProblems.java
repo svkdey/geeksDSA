@@ -35,6 +35,7 @@ public class TreePathProblems {
 			ArrayList<Integer> res = new ArrayList<Integer>(arr);
 
 			printPathResult.add(res);
+			return;
 		}
 		printPathUtil(root.left, arr, pathLength);
 		printPathUtil(root.right, arr, pathLength);
@@ -77,6 +78,7 @@ public class TreePathProblems {
 				res = list;
 
 			}
+			return;
 		}
 		pathSumMaxUtil(root.left, list, pathLength);
 		pathSumMaxUtil(root.right, list, pathLength);
@@ -158,7 +160,7 @@ public class TreePathProblems {
 		for (int j = i + 1; j < path2.size(); j++) {
 			System.out.print(path2.get(j) + " ");
 		}
-		Deque<Integer> a=new LinkedList<>();
+		Deque<Integer> a = new LinkedList<>();
 	}
 
 //max value btwn two nodes
@@ -193,6 +195,45 @@ public class TreePathProblems {
 
 		findMaxUtil(node);
 		return maxSumBtwNodeValues;
+	}
+
+	// Print all nodes at distance k from a given node
+	static int count = 0;
+
+	int printKDistantfromLeaf(TreeNode node, int k) {
+		// Write your code here
+		int path[] = new int[1000];
+		boolean visited[] = new boolean[1000];
+		kDistantFromLeafUtil(node, path, visited, 0, k);
+		int res = count;
+		count = 0;
+		return res;
+
+	}
+
+	void kDistantFromLeafUtil(TreeNode node, int path[], boolean visited[], int pathLen, int k) {
+		// Base case
+		if (node == null)
+			return;
+
+		/* append this Node to the path array */
+		path[pathLen] = node.data;
+		visited[pathLen] = false;
+		pathLen++;
+
+		/*
+		 * it's a leaf, so print the ancestor at distance k only if the ancestor is not
+		 * already printed
+		 */
+		if (node.left == null && node.right == null && pathLen - k - 1 >= 0 && visited[pathLen - k - 1] == false) {
+			count++;
+			visited[pathLen - k - 1] = true;
+			return;
+		}
+
+		/* If not leaf node, recur for left and right subtrees */
+		kDistantFromLeafUtil(node.left, path, visited, pathLen, k);
+		kDistantFromLeafUtil(node.right, path, visited, pathLen, k);
 	}
 
 	public static void main(String[] args) {

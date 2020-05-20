@@ -51,6 +51,7 @@ public class HeapProblems {
 
 		int numberOfelemenyPoped = 0;
 		while (numberOfelemenyPoped < arr.length - k) {
+			
 			pq.poll();
 			numberOfelemenyPoped++;
 		}

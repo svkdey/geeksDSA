@@ -1,6 +1,7 @@
 package Trees;
 
 public class TreeHardProblems {
+//	https://www.geeksforgeeks.org/minimum-time-to-burn-a-tree-starting-from-a-leaf-node/
 	static class Distance {
 		int val;
 

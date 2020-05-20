@@ -89,8 +89,8 @@ public class ConversionProblems {
 	 * 
 	 * 
 	 */
-	
-	//doubly ll
+
+	// doubly ll
 	static TreeNode head;
 	static TreeNode prev = null;
 
@@ -155,32 +155,117 @@ public class ConversionProblems {
 		prevCC = root;
 		treeToDD(root.right);
 	}
-	
-	static TreeNode makeTreeFromTraversals(int in[],int pre[]) {
-		return makeTreeFromTraversalsUtil(in,pre,0,in.length-1);
+
+	static TreeNode makeTreeFromTraversals(int in[], int pre[]) {
+		return makeTreeFromTraversalsUtil(in, pre, 0, in.length - 1);
 	}
-	static int preIndex=0;
-	static TreeNode makeTreeFromTraversalsUtil(int in[],int pre[],int iStart,int iEnd) {
-		if(iStart>iEnd) {
+
+	static int preIndex = 0;
+
+	static TreeNode makeTreeFromTraversalsUtil(int in[], int pre[], int iStart, int iEnd) {
+		if (iStart > iEnd) {
 			return null;
 		}
-		TreeNode root=new TreeNode(pre[preIndex]);
+		TreeNode root = new TreeNode(pre[preIndex]);
 		preIndex++;
-		
-		int inIndex=0;
-		for(int i=iStart;i<iEnd;i++) {
-			if(in[i]==root.data) {
-				inIndex=i;
+		if (iStart == iEnd) 
+            return root; 
+		int inIndex = 0;
+		for (int i = iStart; i <= iEnd; i++) {
+			if (in[i] == root.data) {
+				inIndex = i;
 				break;
 			}
 		}
-		root.left=makeTreeFromTraversalsUtil(in,pre,iStart,inIndex-1);
-		root.right=makeTreeFromTraversalsUtil(in,pre,inIndex+1,iEnd);
+		root.left = makeTreeFromTraversalsUtil(in, pre, iStart, inIndex - 1);
+		root.right = makeTreeFromTraversalsUtil(in, pre, inIndex + 1, iEnd);
 		return root;
 	}
-	
-	
+//only from in order
+	static TreeNode makeTreeFromInOrderTraversalOnly(int in[]) {
+		return makeTreeFromInOrderTraversalOnlyUtil(in, 0, in.length - 1);
+	}
 
+	static TreeNode makeTreeFromInOrderTraversalOnlyUtil(int in[], int start, int end) {
+		if (start > end)
+			return null;
+		int maxIdx = max(in, start, end);
+
+		TreeNode root = new TreeNode(in[maxIdx]);
+		if (start == end)
+			return root;
+
+		root.left = makeTreeFromInOrderTraversalOnlyUtil(in, start, maxIdx - 1);
+		root.right = makeTreeFromInOrderTraversalOnlyUtil(in, maxIdx + 1, end);
+
+		return root;
+	}
+
+	static int max(int arr[], int start, int end) {
+		int maxELement = arr[start];
+		int maxInd = start;
+		for (int i = start + 1; i < end; i++) {
+			if (arr[i] > maxELement) {
+				maxELement = arr[i];
+				maxInd = i;
+			}
+		}
+		return maxInd;
+	}
+//inoder+post order
+	 static class Index { 
+		    int index; 
+		} 
+		    TreeNode buildTree(int in[], int post[], int n) {
+		        // Your code here
+		       Index pIndex = new Index(); 
+		        pIndex.index = n - 1; 
+		        return buildUtil(in, post, 0, n - 1, pIndex);
+		   
+		    }
+		   
+		    TreeNode buildUtil(int in[], int post[], int inStrt, 
+		                   int inEnd, Index pIndex) 
+		    { 
+		        // Base case 
+		        if (inStrt > inEnd) 
+		            return null; 
+		  
+		        /* Pick current TreeNode from Postrder traversal using 
+		           postIndex and decrement postIndex */
+		        TreeNode node = new TreeNode(post[pIndex.index]); 
+		        (pIndex.index)--; 
+		  
+		        /* If this node has no children then return */
+		        if (inStrt == inEnd) 
+		            return node; 
+		  
+		        /* Else find the index of this node in Inorder 
+		           traversal */
+		        int iIndex = search(in, inStrt, inEnd, node.data); 
+		  
+		        /* Using index in Inorder traversal, construct left and 
+		           right subtress */
+		        node.right = buildUtil(in, post, iIndex + 1, inEnd, pIndex); 
+		        node.left = buildUtil(in, post, inStrt, iIndex - 1, pIndex); 
+		  
+		        return node; 
+		    } 
+		  
+		  
+		    /* UTILITY FUNCTIONS */
+		  
+		    /* Function to find index of value in arr[start...end] 
+		     The function assumes that value is present in in[] */
+		    int search(int arr[], int strt, int end, int value) 
+		    { 
+		        int i; 
+		        for (i = strt; i <= end; i++) { 
+		            if (arr[i] == value) 
+		                break; 
+		        } 
+		        return i; 
+		    } 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		int arr[] = { -1, 0, 0, 1, 1, 3, 5 };
