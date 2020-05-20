@@ -92,7 +92,8 @@ public class MinHeapImpl {
 		heapify(0);
 		return minVal;
 	}
-
+// Decreases value of key at index 'i' to new_val.  It is assumed that 
+// new_val is smaller than arr[i]. 
 	void decreaseKey(int i, int value) {
 		if (size > i) {
 			arr[i] = value;
