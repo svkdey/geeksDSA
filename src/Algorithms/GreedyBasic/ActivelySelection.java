@@ -56,10 +56,12 @@ are independent and k has smallest finishing time among all. Since k is not 1, f
 
     public static void main(String[] args) {
         ArrayList<Pair> list = new ArrayList<>();
-        list.add(new Pair(2, 3));
-        list.add(new Pair(1, 4));
-        list.add(new Pair(5, 8));
-        list.add(new Pair(6, 10));
+        list.add(new Pair(1, 2));
+        list.add(new Pair(3, 4));
+        list.add(new Pair(2, 6));
+        list.add(new Pair(5, 7));
+        list.add(new Pair(8, 9));
+        list.add(new Pair(5, 9));
         activelySelectionImpl(list);
 
 
