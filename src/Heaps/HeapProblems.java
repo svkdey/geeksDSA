@@ -12,6 +12,7 @@ public class HeapProblems {
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
 		for (int i = 0; i <= k; i++) {
 			pq.add(arr[i]);
+
 		}
 		int idx = 0;
 		for (int i = k + 1; i < arr.length; i++) {

@@ -26,8 +26,9 @@ public class MajorityElement {
 	
 	//algo 1.find a candidate by its index .
 	//2.check if its a majority or not
-	
-	public static int majorityElementTwo(int[] arr, int n) {
+
+
+	public static int findCandidate(int[] arr, int n){
 //		lets  index =0 is majority
 //		and check if any other majority
 		int res = 0, count = 1;
@@ -42,25 +43,34 @@ public class MajorityElement {
 				count = 1;
 			}
 		}
-		count = 0;
-//		System.out.println(res);
+		return arr[res];
+	}
+
+	public static int findFrequencyOfGivenCandidate(int[] arr, int n,int candidate){
+		int count=0;
 		for (int i = 0; i < n; i++) {
-			if (arr[res] == arr[i]) {
+			if (candidate== arr[i]) {
 				count++;
 			}
 
 		}
+		return count;
+	}
+
+
+		public static int majorityElementTwo(int[] arr, int n) {
+
+		int candidate=findCandidate(arr,n);
+		int count = findFrequencyOfGivenCandidate(arr,n,candidate);
+
+		int res=1;
 		if (count <= n / 2) {
 			res = -1;
 		}
-		return count;
+		return res;
 
 	}
-//	public static int majorityElementThree(ArrayList<Integer> arr, int n) {
-//		HashSet<Integer,Integer> set=HashSet<E>
-//		
-//
-//	}
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

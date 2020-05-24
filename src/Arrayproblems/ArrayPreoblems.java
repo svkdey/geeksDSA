@@ -2,6 +2,7 @@ package Arrayproblems;
 import java.util.ArrayList;
 
 import Data.ArrayData;
+import SortingClassExample.SortingMain;
 
 /*
  * insert(O(n))
@@ -51,6 +52,7 @@ public class ArrayPreoblems {
 		int low = 0;
 		int high = size - 1;
 		while (high > low) {
+			//swap high and low
 			int temp = arr[high];
 			arr[high] = arr[low];
 			arr[low] = temp;
@@ -75,6 +77,8 @@ public class ArrayPreoblems {
 		 * res); System.out.println(res); return res;
 		 */
 		// best soultion
+
+		//without extra space
 		showArr(arr, size);
 		int res = 1;
 		for (int i : arr) {
@@ -132,7 +136,7 @@ public class ArrayPreoblems {
 		showArr(arr, size);
 
 	}
-
+/** reverse between low and high Idx**/
 	public static void reversePartly(int[] arr, int low, int high) {
 
 		while (high > low) {
@@ -158,13 +162,14 @@ public class ArrayPreoblems {
 		//o(n) solution
 		
 		int cur_leader=arr[size-1];
-		System.out.println(cur_leader);
+
 		for(int i=size-2;i>=0;i--) {
 			if(arr[i]>cur_leader) {
 				cur_leader=arr[i];
-				System.out.println(cur_leader);
+
 			}
 		}
+		System.out.println(cur_leader);
 		
 	}
 
@@ -246,6 +251,7 @@ public class ArrayPreoblems {
 	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int arr[] = { 10, 20,20,30,30, 30,40 };
 		int arr1[] = { 10, 20, 30 };
 		int arr2[] = { 10, 20, 30, 40 };
 //		int[] arr =new int[5];
@@ -271,9 +277,10 @@ public class ArrayPreoblems {
 //		reverse(arr2, 4);
 //		int[] arr = { 10,50, 100,20,50, 30, 40 };
 //		leftRotateByd(arr, 7, 3);
-////		removeDuplicateInSortedArr(arr, 6);
+//		removeDuplicateInSortedArr(arr, 6);
 //		maxDiff(arr, 7);
 //		arrange(ArrayData.arrangeData, ArrayData.arrangeData.length);
+		leftRotateByd(arr2,arr2.length,2);
 	}
 
 }

@@ -76,6 +76,7 @@ public class SodukoProblems {
     }
 
     public static void main(String[] args) {
+        System.out.println(6%4);
     int board[][]={ {3, 0, 6, 5, 0, 8, 4, 0, 0},
             {5, 2, 0, 0, 0, 0, 0, 0, 0},
             {0, 8, 7, 0, 0, 0, 0, 3, 1},
@@ -93,5 +94,6 @@ public class SodukoProblems {
             System.out.println();
             }
         }
+
 
 }

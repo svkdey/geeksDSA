@@ -53,12 +53,62 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 		return profit;
 
 	}
-
-	public static void SellAndBuyStockProblemtoGetMaxprofit3(int[] price, int start, int n) {
-//		ArrayList<int[]> list=new ArrayList<int[]>();
-//		int [] transaction= {0,0};
-		
+	static class Interval {
+		int buy, sell;
 	}
+//int[] stocklist4 = { 23, 13, 25, 29, 33, 19, 34, 45, 65, 67 };
+	public static void SellAndBuyStockProblemtoGetMaxprofit3(int[] price,int n) {
+		if (n == 1) {
+			System.out.println("No Profit");
+			return;
+		}
+		int count = 0;
+		// Traverse through given price array
+		int i = 0;
+		while (i < n - 1) {
+			//for ith transcation start
+			// Find Local Minima. Note that the limit is (n-2) as we are
+			// comparing present element to the next element.
+			//
+
+			while ((i < n - 1) && (price[i + 1] <= price[i])) {
+				i++;
+			}
+			// If we reached the end, break as no further solution possible
+			if (i == n - 1)
+				break;
+
+			Interval e = new Interval();
+			e.buy = i++;
+			// Store the index of minima
+
+			// Find Local Maxima.  Note that the limit is (n-1) as we are
+			// comparing to previous element
+
+			while ((i < n) && (price[i] >= price[i - 1])) {
+				i++;
+			}
+			// Store the index of maxima
+			e.sell = i - 1;
+//			sol.add(e);
+			System.out.println("Buy on day: " + e.buy
+					+ "        "
+					+ "Sell on day : " + e.sell);
+			// Increment number of buy/sell
+			count++;
+		}
+
+		// print solution
+		if (count == 0)
+			System.out.println("No Profit");
+		else{
+
+		}
+
+		return;
+	}
+
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -68,9 +118,9 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 //		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist2, 0, 2));
 //		int[] stocklist3 = { 3, 2, 1 };
 //		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist3, 0, 2));
-		int[] stocklist4 = { 23, 13, 25, 29, 33, 19, 34, 45, 65, 67 };
-		int[] stocklist5 = { 4, 2, 2, 2, 4 };
-		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, 0, stocklist4.length);
+		int[] stocklist4 = { 100, 180, 260, 310, 40, 535, 300 };
+		int[] stocklist5 = { 5,5,5,5,5};
+		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, stocklist4.length);
 	}
 
 }

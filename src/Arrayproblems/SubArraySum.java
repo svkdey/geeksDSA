@@ -44,25 +44,32 @@ class SubArraySum {
 	static void subarraySum(int n, int s, int[] arr) {
 
 		// Your code here
-		int sum = 0;
-		boolean notFound = true;
-		int l = 0, r = -1;
-		for (int i = 0; i < n; i++) {
-			sum += arr[i];
-			r++;
-			while (sum > s) {
-				sum -= arr[l];
-				l++;
+		//taking arr of O as sum and 0 as starting point
+		int sum = arr[0];
+		int start = 0;
+
+		int j=1;
+		for (j = 1; j <=n; j++) {
+			//clean the prev window
+			while (sum > s && start < j) {
+				sum -= arr[start];
+				start++;
 			}
 			if (sum == s) {
-				notFound = false;
-				System.out.print((l + 1) + " " + (r + 1));
-				break;
+				System.out.println("sum is btwn " + start + " and " + (j - 1));
+//				return 1;
+			}
+			;
+			if (j < n) {
+				sum += arr[j];
 			}
 		}
-		if (notFound) {
-			System.out.print(-1);
-		}
+
+//		return 0;
+
+	}
+
+	public static void main(String[] args) {
 
 	}
 }

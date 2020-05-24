@@ -28,25 +28,36 @@ public class GeeksExercise {
 
 	}
 
+//most efficient solution
 	static void largestAndSecondLargest(int sizeOfArray, int arr[]) {
-		ArrayList<Integer> hs = new ArrayList<Integer>();
-		int max = Integer.MIN_VALUE;
-		int max2 = Integer.MIN_VALUE;
-		for (int i : arr) {
-			if (!hs.contains(i)) {
-				hs.add(i);
+
+		int i, first, second,arr_size=arr.length;
+
+		/* There should be atleast two elements */
+		if (arr_size < 2)
+		{
+			System.out.print(" Invalid Input ");
+			return;
+		}
+
+		first = second = Integer.MIN_VALUE;
+		for (i = 0; i < arr_size ; i++)
+		{
+            /* If current element is smaller than
+            first then update both first and second */
+			if (arr[i] > first)
+			{
+				second = first;
+				first = arr[i];
 			}
+
+            /* If arr[i] is in between first and
+               second then update second  */
+			//removing first value duplication also
+			else if (arr[i] > second && arr[i] != first)
+				second = arr[i];
 		}
-		Collections.sort(hs, Collections.reverseOrder());
-		System.out.println(hs);
-		if (hs.size() > 1) {
-			max = hs.get(0);
-			max2 = hs.get(1);
-		} else {
-			max = hs.get(0);
-			max2 = -1;
-		}
-		System.out.println(max + " " + max2);
+		System.out.println(first+" "+second);
 
 	}
 

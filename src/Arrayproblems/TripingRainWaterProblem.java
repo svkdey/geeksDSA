@@ -44,14 +44,14 @@ public class TripingRainWaterProblem {
 		}
 		// start from right to compute rmax
 		rMax[end - 1] = arr[end - 1];
-		;
+
 		for (int j = end - 2; j >= 0; j--) {
 			rMax[j] = Math.max(rMax[j + 1], arr[j]);
 		}
 		for (int i = start; i < end - 1; i++) {
 			totalVol += Math.min(rMax[i], lMax[i]) - arr[i];
 		}
-		;
+
 		return totalVol;
 	}
 

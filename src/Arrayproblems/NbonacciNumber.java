@@ -30,7 +30,7 @@ public class NbonacciNumber {
 		for (int i = n + 1; i < m; i++) {
 			sum += arr[i] - arr[i - n];
 			arr[i + 1] = sum;
-			;
+
 		}
 		for (int i = 0; i < m; i++) {
 			System.out.println(arr[i]);
