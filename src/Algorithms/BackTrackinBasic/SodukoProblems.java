@@ -1,4 +1,4 @@
-package Algorithms.GreedyBasic;
+package Algorithms.BackTrackinBasic;
 
 public class SodukoProblems {
     public static boolean solve(int board[][],int n){

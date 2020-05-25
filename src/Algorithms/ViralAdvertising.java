@@ -1,4 +1,4 @@
-package Algorithms.GreedyBasic;
+package Algorithms;
 
 public class ViralAdvertising {
 
