@@ -33,7 +33,9 @@ public class LongestConsicutiveElement {
 		System.out.println(hs);
 		for (int i : arr) {
 			if (hs.contains(i - 1)) {
+				//bcz pervious exist so count
 				int count = 1;
+				//current is iterator
 				int current = 0;
 				while (hs.contains(i + current)) {
 					count++;

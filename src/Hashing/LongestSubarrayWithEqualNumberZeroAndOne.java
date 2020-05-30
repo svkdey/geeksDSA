@@ -20,8 +20,11 @@ public class LongestSubarrayWithEqualNumberZeroAndOne {
 			if (prefixSum == 0) {
 				maxLength = i + 1;
 			}
+
+
 			if (map.containsKey(prefixSum)) {
 				int idx = map.get(prefixSum);
+
 				maxLength = Math.max(i - idx, maxLength);
 			} else {
 				map.put(prefixSum, i);
@@ -47,6 +50,8 @@ public class LongestSubarrayWithEqualNumberZeroAndOne {
 			}
 			if(map.containsKey(prefixSum)) {
 				count+=map.get(prefixSum);
+
+
 				map.put(prefixSum,map.get(prefixSum)+1);
 			}
 			else {

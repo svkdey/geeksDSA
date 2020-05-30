@@ -1,99 +1,83 @@
 package Hashing;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 import Data.ArrayData;
 
 public class SortByFrequency {
-	static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByDesending(Map<K, V> map) {
+    static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByDesending(Map<K, V> map) {
 
-		List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K,V>>(map.entrySet());
+        List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map.entrySet());
 
-		Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
-			@Override
-			public int compare(Entry<K, V> e1, Entry<K, V> e2) {
-				return e2.getValue().compareTo(e1.getValue());
-			}
-		});
+        Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
+            @Override
+            public int compare(Entry<K, V> e1, Entry<K, V> e2) {
+                return e2.getValue().compareTo(e1.getValue());
+            }
+        });
 
-		return sortedEntries;
-	}
-	static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByAscending(Map<K, V> map) {
+        return sortedEntries;
+    }
 
-		List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K,V>>(map.entrySet());
+    static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByAscending(Map<K, V> map) {
 
-		Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
-			@Override
-			public int compare(Entry<K, V> e1, Entry<K, V> e2) {
-				return e1.getValue().compareTo(e2.getValue());
-			}
-		});
+        List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map.entrySet());
 
-		return sortedEntries;
-	}
-	static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByDesendingOrderMinComesFirst(Map<K, V> map) {
+        Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
+            @Override
+            public int compare(Entry<K, V> e1, Entry<K, V> e2) {
+                return e1.getValue().compareTo(e2.getValue());
+            }
+        });
 
-		List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K,V>>(map.entrySet());
+        return sortedEntries;
+    }
 
-		Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
-			@Override
-			public int compare(Entry<K, V> e1, Entry<K, V> e2) {
-				if(e2.getValue()!=e1.getValue()) {
-					return e2.getValue().compareTo(e1.getValue());
-					}
-				else {
-					return ((Integer) e1.getKey()).compareTo((Integer) e2.getKey());
-				}
-			}
-		});
+    static <K, V extends Comparable<? super V>> List<Entry<K, V>> entriesSortedByValuesByDesendingOrderMinComesFirst(Map<K, V> map) {
 
-		return sortedEntries;
-	}
-	static void sortByFreq(int arr[], int n) {
-		// add your code here
-		int maxVal = arr[0], minVal = arr[0];
-		LinkedHashMap<Integer, Integer> m = new LinkedHashMap<>();
-		for (int i = 0; i < n; i++) {
-			if (arr[i] > maxVal) {
-				maxVal = arr[i];
-			}
-			if (arr[i] < minVal) {
-				minVal = arr[i];
-			}
-			if (!m.containsKey(arr[i])) {
-				m.put(arr[i], 1);
-			} else {
-				m.put(arr[i], (m.get(arr[i]) + 1));
-			}
-		}
-		List<Entry<Integer, Integer>> list=entriesSortedByValuesByDesendingOrderMinComesFirst(m);
-		System.out.println(list);
-		int i = 0;
-		for (Entry<Integer, Integer> e:list) {
-			
-				int k = 0;
-				while (k < e.getValue()) {
-					arr[i] = e.getKey();
-					k++;
-					i++;
-				}
-				
-			}
-//		ArrayPreoblems.showArr(arr, arr.length);
-		}
+        List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map.entrySet());
 
-		
-	
+        Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
+            @Override
+            public int compare(Entry<K, V> e1, Entry<K, V> e2) {
+                if (e2.getValue() != e1.getValue()) {
+                    return e2.getValue().compareTo(e1.getValue());
+                } else {
+                    return ((Integer) e1.getKey()).compareTo((Integer) e2.getKey());
+                }
+            }
+        });
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		sortByFreq(ArrayData.arrangeData1, ArrayData.arrangeData1.length);
-	}
+        return sortedEntries;
+    }
+
+    static void sortByFreq(int arr[], int n) {
+        // add your code here
+        TreeMap<Integer, Integer> mp = new TreeMap<Integer, Integer>();
+        for (int i : arr) {
+            if(mp.containsKey(i)){
+                mp.put(i,mp.get(i)+1);
+            }else{
+                mp.put(i,1);
+            }
+        }
+        System.out.println(mp);
+        ArrayList<Map.Entry<Integer,Integer>> list=new ArrayList<Map.Entry<Integer,Integer>>();
+        for(Map.Entry<Integer,Integer> l:mp.entrySet()){
+            list.add(l);
+        }
+        System.out.println(list);
+        Comparator<Map.Entry<Integer,Integer>> c=(o1, o2) -> o2.getValue()-o1.getValue();
+        Collections.sort(list,c);
+        System.out.println(list);
+    }
+
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        int arr[]={5, 5, 4, 6, 4};
+        sortByFreq(arr,arr.length);
+    }
 
 }
