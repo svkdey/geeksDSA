@@ -6,7 +6,7 @@ public class BeautifulArray {
 	/*
 	 * It's a bit observation kind of Question : apply the formula
 	 * 
-	 * ( maximum sum of row (col ) * (n)) - (total sum of all elements of matrix);
+	 * ( maximum sum of row /col  * (n)) - (total sum of all elements of matrix);
 	 */
 	static int findMinOperation(int n, int mat[][]) {
 		// Your code here

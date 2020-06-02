@@ -3,6 +3,19 @@ package GraphAlgorithm;
 import java.util.ArrayList;
 
 public class GraphAdjacencyListWeightedUndirectedGraph {
+	class Pair{
+		int vertex;int weight;
+		public Pair(int v,int w) {
+			// TODO Auto-generated constructor stub
+			vertex=v;
+			weight=w;
+		}
+		@Override
+		public String toString() {
+			return "Pair [vertex=" + vertex + ", weight=" + weight + "]";
+		}
+		
+	}
     public ArrayList<ArrayList<Pair>> adjList;
 
     public GraphAdjacencyListWeightedUndirectedGraph(int vertexNumber) {

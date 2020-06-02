@@ -10,7 +10,9 @@ import Data.GraphData;
  
  in directed graph if there is a cycle then it is possible else not;
  
- so we find subsets of graph which are connected by kosaraju and targan's algo\
+ so we find subsets of graph which are connected by kosaraju and
+ 
+  targan's algo\
  
  it is used to show feeds to a certain kind of people who likes same things
  **/
@@ -31,15 +33,18 @@ public class FindConnectedComponentInDirectedGraph {
 		
 		//traverse rev graph considering source as the poped item of the stack
 		boolean isVisitedRev[]=new boolean[V];
+		System.out.println(s);
+		int c=0;
 		while(!s.isEmpty()) {
 			int v=s.pop();
 			if(!isVisitedRev[v]) {
 				dfsPrint(revGraph.adjList,v,isVisitedRev);
 				System.out.println();
+				c++;
 			}
 			
 		}
-		
+//		System.out.println(c);
 		
 	}
 	public static void dfsPrint(ArrayList<ArrayList<Integer>> adjList, int src, boolean visited[]) {

@@ -280,7 +280,8 @@ public class ArrayPreoblems {
 //		removeDuplicateInSortedArr(arr, 6);
 //		maxDiff(arr, 7);
 //		arrange(ArrayData.arrangeData, ArrayData.arrangeData.length);
-		leftRotateByd(arr2,arr2.length,2);
+//		leftRotateByd(arr2,arr2.length,2);
+		leftRotateByd(arr1, arr1.length, 2);
 	}
 
 }

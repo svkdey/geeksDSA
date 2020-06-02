@@ -8,16 +8,28 @@ import GraphAlgorithm.GraphAdjcencyListDirectedWeightedGraph;
 public class GraphData {
 	public static GraphAdjacencyList getGraph() {
 		GraphAdjacencyList graph = new GraphAdjacencyList();
-		graph.addVertex(4);
+		graph.addVertex(3);
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 2);
 		graph.addEdge(2, 1);
-		graph.addEdge(3, 1);
-		graph.addEdge(4, 1);
-		graph.addEdge(4, 2);
+		graph.addEdge(3, 0);
+		graph.addEdge(3, 2);
+//		graph.addEdge(4, 2);
 
 		return graph;
 	}
+	public static GraphAdjacencyList getGraphForColor() {
+		GraphAdjacencyList graph = new GraphAdjacencyList();
+		graph.addVertex(3);
+		graph.addEdge(0, 1);
+		graph.addEdge(0, 2);
+		graph.addEdge(1, 3);
+		graph.addEdge(3, 2);
+		
+
+		return graph;
+	}
+
 
 	public static GraphAdjacencyList getDisconnectedGraph() {
 		GraphAdjacencyList graph = new GraphAdjacencyList();
@@ -114,6 +126,7 @@ public class GraphData {
 		g.addEdge(2, 1);
 		g.addEdge(0, 3);
 		g.addEdge(3, 4);
+//		g.addEdge(4, 0);
 		return g;
 	}
 }

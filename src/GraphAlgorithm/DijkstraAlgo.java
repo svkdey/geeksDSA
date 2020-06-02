@@ -25,15 +25,15 @@ import java.util.PriorityQueue;
 
 
 public class DijkstraAlgo {
-//    static class Pair {
-//        int vertex;
-//        int weight;
-//
-//        public Pair(int vertex, int weight) {
-//            this.vertex = vertex;
-//            this.weight = weight;
-//        }
-//    }
+    static class Pair {
+        int vertex;
+        int weight;
+
+        public Pair(int vertex, int weight) {
+            this.vertex = vertex;
+            this.weight = weight;
+        }
+    }
 	//BFS =>queue replaces priority queue
 	
     public static void dijkstraAlgoImpl(ArrayList<ArrayList<Pair>> graph, int src, int V) {
@@ -87,9 +87,9 @@ public class DijkstraAlgo {
 
     public static void main(String[] args) {
         GraphAdjacencyListWeightedUndirectedGraph graph= GraphData.getDirectWeightedGraph();
-        System.out.println(graph.adjList);
+     //   System.out.println(graph.adjList);
 
-        dijkstraAlgoImpl(graph.adjList,1,graph.adjList.size());
+    //    dijkstraAlgoImpl(graph.adjList,1,graph.adjList.size());
 
     }
 }
