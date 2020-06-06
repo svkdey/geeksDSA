@@ -35,7 +35,7 @@ public class EditDistance {
                 }else{
                     dp[i][j]=1+Math.min(dp[i-1][j],Math.min(dp[i][j-1],dp[i-1][j-1]));
                 }
-                //    showDPArry(dp,m,n);
+            //    showDPArry(dp,m,n);
             }
         }
 
@@ -52,8 +52,8 @@ public class EditDistance {
         }
     }
     public static void main(String[] args) {
-        String s1="CAT",s2="CUT";
-        int m=s1.length(),n=s2.length();
+      String s1="CAT",s2="CUT";
+      int m=s1.length(),n=s2.length();
         System.out.println(editDistanceDP(s1,s2,m,n));
     }
 }

@@ -1,47 +1,60 @@
 package Algorithms.BackTrackinBasic;
 
 public class RatInMaze {
-    public static boolean ratInMazeImpl(int arr[][], int n, int m, int result[][]) {
-        return ratInMazeImplRecusion(arr,0,0,n,m,result);
+    public static void solve(int[][] maze, int N) {
+        int grid[][]=new int[N][N];
+        // add your code here
+        boolean res=dfs(maze,N,0,0,grid);
+
+        if(res){
+            for(int i=0;i<N;i++){
+                for(int j=0;j<N;j++){
+                    System.out.print(grid[i][j]+" ");
+                }
+                System.out.println();
+            }
+        }else{
+            System.out.println(false);
+        }
     }
-    public static boolean ratInMazeImplRecusion(int arr[][],int i,int j, int n, int m, int result[][]) {
-            if(i==n-1&&j==m-1){
-                result[i][j]=1;
+
+    static boolean isSafe(int[][] maze, int N, int x, int y) {
+        if (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean dfs(int[][] maze, int N, int x, int y, int grid[][]) {
+        // add your code here
+
+        if (x == N - 1 && y == N - 1) {
+            grid[x][y] = 1;
+            return true;
+        }
+        int jumps = maze[x][y];
+        for (int i = 1; i <= jumps; i++) {
+            grid[x][y] = 1;
+            if (isSafe(maze, N, x, y + i) && dfs(maze, N, x, y + i, grid)) {
                 return true;
             }
-            if(isnextMoveValid(arr,i,j,n,m)){
-                result[i][j]=1;
-
-                if(ratInMazeImplRecusion(arr,i+1,j,n,m,result)){
-                    return true;
-                }
-
-                else if(ratInMazeImplRecusion(arr,i,j+1,n,m,result)){
-                    return true;
-                }
-                //resetting the move as it is not going to be in solution
-                result[i][j]=0;
-
+            if (isSafe(maze, N, x + i, y) && dfs(maze, N, x + i, y, grid)) {
+                return true;
             }
-            return false;
 
-    }
-
-    static boolean isnextMoveValid(int arr[][], int i, int j, int n, int m) {
-        if (i < n && j < m && arr[i][j] == 1) {
-            return true;
-        } else return false;
+            grid[x][y] = 0;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
-        int arr[][] = {{1, 1, 0, 0}, {0, 1, 1, 1}, {0, 1, 0, 0}, {1, 1, 1, 1}};
-        int result[][] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
-        System.out.println(ratInMazeImpl(arr, 4, 4, result));
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[i].length; j++) {
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.println();
-        }
+//        int grid[][] = {{2, 1, 0, 0,},
+//                        {3, 0, 0, 1},
+//                        {0, 1, 0, 1},
+//                        {3, 0, 0, 1}};
+        int grid[][]={{1,1},{1,1}};
+        solve(grid,2);
+
     }
 }

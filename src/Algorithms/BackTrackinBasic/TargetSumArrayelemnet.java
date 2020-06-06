@@ -36,7 +36,7 @@ import java.util.LinkedHashSet;
 public class TargetSumArrayelemnet {
 	static ArrayList<ArrayList<Integer>> combinationSum(ArrayList<Integer> A, int B) {
 		LinkedHashSet<ArrayList<Integer>> result = new LinkedHashSet<ArrayList<Integer>>();
-		combinationSumImpl(result, new ArrayList<Integer>(), A, B, 0);
+		combinationSumImplIfDuplicateNotAllowed(result, new ArrayList<Integer>(), A, B, 0);
 		System.out.println(result);
 		ArrayList<ArrayList<Integer>> res=new ArrayList<ArrayList<Integer>>(result);
 		return res;
@@ -52,6 +52,7 @@ public class TargetSumArrayelemnet {
 		} else {
 			for (int i = idx; i < A.size(); i++) {
 				temp.add(A.get(i));
+				//taking last element and trying again
 				combinationSumImpl(result, temp, A, B - A.get(i), i);
 				temp.remove(temp.size() - 1);
 
@@ -59,16 +60,35 @@ public class TargetSumArrayelemnet {
 		}
 	}
 
+	static void combinationSumImplIfDuplicateNotAllowed(LinkedHashSet<ArrayList<Integer>> result, ArrayList<Integer> temp, ArrayList<Integer> A,
+			int B, int idx) {
+		if (B < 0)
+			return;
+		if (B == 0) {
+			result.add(new ArrayList<Integer>(temp));
+			return;
+		} else {
+			for (int i = idx; i < A.size(); i++) {
+				//not taking the duplicate again
+				if(i>idx&&A.get(i)==A.get(i-1)) continue;
+				temp.add(A.get(i));
+				//not taking the element again
+				combinationSumImpl(result, temp, A, B - A.get(i), i+1);
+				temp.remove(temp.size() - 1);
+
+			}
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = { 4, 2, 6, 8 };
+		int arr[] = {2,5,2,1,2};
 		Arrays.sort(arr);
 		ArrayList<Integer> l = new ArrayList<Integer>();
 		for (int i : arr) {
 			l.add(i);
 		}
 		System.out.println(l);
-		combinationSum(l, 8);
+		combinationSum(l, 5);
 	}
 
 }
