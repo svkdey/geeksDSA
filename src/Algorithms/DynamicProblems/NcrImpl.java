@@ -51,7 +51,7 @@ public class NcrImpl {
 			}
 		}
 
-//		showTable(dp);
+//	-	showTable(dp);
 		return dp[n][r];
 
 	}
