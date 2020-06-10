@@ -56,7 +56,7 @@ public class PrimsMST {
 		System.out.println(Arrays.toString(key));
 		System.out.println("--------------");
 	}
-//this funtion returns unvisted minimum key's Index
+	// this function returns unvisited minimum key's Index
 
 	public static int minKey(int key[], boolean mstSet[], int V) {
 		int min = Integer.MAX_VALUE;
@@ -91,40 +91,39 @@ public class PrimsMST {
 	public static int Prims(int graph[][]) {
 		int n = graph.length;
 		int sum = 0;
-		int count=1;
-		boolean visited[]=new boolean[graph.length];
+		int count = 1;
+		boolean visited[] = new boolean[graph.length];
 		Comparator<Edge> c = (a, b) -> a.cost - b.cost;
 		PriorityQueue<Edge> pq = new PriorityQueue<PrimsMST.Edge>(c);
-		visited[0]=true;
+		visited[0] = true;
 
 		for (int i = 1; i < n; i++) {
 			if (graph[0][i] != 0) {
 				pq.offer(new Edge(i, graph[0][i]));
 			}
 		}
-		
-		while (count!= n && !pq.isEmpty()) {
+
+		while (count != n && !pq.isEmpty()) {
 			Edge edge = pq.poll();
-			
+
 			if (!visited[edge.to]) {
 				for (int j = 0; j < n; j++) {
 					if (!visited[j] && graph[edge.to][j] != 0) {
 						pq.add(new Edge(j, graph[edge.to][j]));
 					}
-					
+
 				}
 				count++;
-				visited[edge.to]=true;
+				visited[edge.to] = true;
 				sum += edge.cost;
 			}
-			
+
 		}
 		System.out.println(visited);
-		if(count != n) {
+		if (count != n) {
 			System.out.println(-1);
 			return -1;
-		}
-		else {
+		} else {
 			System.out.println(sum);
 			return sum;
 		}
@@ -139,7 +138,7 @@ public class PrimsMST {
 		PriorityQueue<Edge> pq = new PriorityQueue<Edge>(c);
 		int row = 0;
 		visited[row] = true;
-		;
+
 		for (int i = 0; i < graph.size(); i++) {
 			if (graph.get(row).get(i) != Integer.MAX_VALUE) {
 				pq.add(new Edge(i, graph.get(row).get(i)));
@@ -155,7 +154,9 @@ public class PrimsMST {
 					}
 				}
 				sum += edge.cost;
+
 				visited[edge.to] = true;
+
 				vInclude++;
 			}
 

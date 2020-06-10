@@ -1,12 +1,5 @@
 package stringDSA;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
-
 public class PatternSearch {
 //	naive approach (O(n-m+1)*(o(m))
 	public static void patternSearch(String txt, String ptr) {

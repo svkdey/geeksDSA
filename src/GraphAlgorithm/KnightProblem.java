@@ -42,11 +42,11 @@ public class KnightProblem {
 		int R = gridSize;
 		int C = gridSize;
 
-		boolean visited[][] = new boolean[R+1][C+1];
+		boolean visited[][] = new boolean[R + 1][C + 1];
 
 		int dr[] = { -2, -2, 2, 2, 1, 1, -1, -1 };
 		int cr[] = { 1, -1, 1, -1, -2, 2, -2, 2 };
-		// queues to tarverse x and y
+		// queues to traverse x and y
 		Queue<MoveByKnight> q = new LinkedList<MoveByKnight>();
 
 		q.add(new MoveByKnight(startX, startY, 0));
@@ -73,8 +73,6 @@ public class KnightProblem {
 		return 1;
 	}
 
-	
-
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
 
@@ -89,7 +87,7 @@ public class KnightProblem {
 					Integer.parseInt(start[0]), Integer.parseInt(start[1]));
 
 			System.out.println(ans);
-			
+
 		}
 	}
 }

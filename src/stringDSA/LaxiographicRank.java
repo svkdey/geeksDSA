@@ -3,7 +3,6 @@ package stringDSA;
 import Recursion.GlobalMathFunctions;
 
 public class LaxiographicRank {
-	
 
 	static int findCountOfSmallerInRight(String str, int low, int high) {
 		int countRight = 0, i;
@@ -19,7 +18,7 @@ public class LaxiographicRank {
 // all permutations of characters 
 	static int findRank(String str) {
 		int len = str.length();
-		
+
 		int factor = GlobalMathFunctions.factorial(len);
 		int rank = 1;
 		int countRight;
