@@ -26,7 +26,7 @@ public class StringDSAMain {
 	}
 
 	public static boolean leftRepeatingCharacter(String str1) {
-
+		//algo : for 1st time occurance make it count+1;and keep checking if any character is of occrance 1 before. if found return the character
 		int[] count = new int[256];
 		for (int i = 0; i < str1.length(); i++) {
 			if (count[(int) str1.charAt(i)] != 1) {
@@ -42,7 +42,10 @@ public class StringDSAMain {
 	}
 
 	public static boolean leftRepeatingCharacterThatDoesNotReapeat(String str1) {
-
+		//algo :count frequency of each character store it LinkedHashmap() . 
+		//traverser the hashmap again and find hm.getValue()==1 
+		
+		//search for again count[i]>=0 
 		LinkedHashMap<Character, Integer> hm = new LinkedHashMap<>();
 		for (int i = 0; i < str1.length(); i++) {
 			if (hm.containsKey(str1.charAt(i))) {
@@ -62,9 +65,14 @@ public class StringDSAMain {
 	}
 
 	public static int leftRepeatingCharacterThatDoesNotReapeatSolTwo(String str1) {
+		//algo : for 1st time occurance assign it i ,when it appears again -2 
+		
+		//search for again count[i]>=0 
+		
 		int[] count = new int[256];
 		Arrays.fill(count, -1);
-		int result = Integer.MAX_VALUE;
+		int result = Integer.MIN_VALUE;
+		
 		for (int i = 0; i < str1.length(); i++) {
 			if (count[(int) str1.charAt(i)] == -1) {
 				count[(int) str1.charAt(i)] = i;
@@ -85,6 +93,8 @@ public class StringDSAMain {
 
 	static void rotateStringNTimes(String s,int n) {
 //		System.out.println(s.substring(n)+s.substring(0,n));
+		
+		//alogo :subString(length-n)+subString(0,n);
 		System.out.println(s.substring(s.length()-n)+s.substring(0,s.length()-n));
 		
 	}
