@@ -4,3 +4,7 @@ DataStructure&Algorithm.iml
 /src/out
 /src/Playground
 /src/PracticeGround
+/src/GeekAmazonQstnbank
+.vscode
+.vscode/launch.json
+.vscode/tasks.json

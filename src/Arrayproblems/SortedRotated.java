@@ -71,12 +71,79 @@ class SortedRotated {
         return ((countup == num - 2 && countdown == 1 && arr[0] > arr[num - 1])
                 || (countdown == num - 2 && countup == 1 && arr[0] < arr[num - 1])) ? true : false;
     }
+    static boolean ifSequenceIsIncreasing (int arr[], int n)
+    {
+    	int i = 0;
+        //increase i untill you get min element,
+    	while (i < n - 1 && arr[i] <= arr[i + 1]) i++;
 
+        //if no min element found and i==last idx .return false
+    	if (i == n - 1) return false;
+        //cross min element nad check 
+    	i++;
+        // now ckeck if sequence is increasing
+    	while (i < n - 1 && arr[i] <= arr[i + 1]) i++;
+        //if we reached last and arr[0]>=arr[n-1] return true else false
+    	if (i == n - 1 && arr[n - 1] <= arr[0])
+    		return true;
+    	else
+    		return false;
+    }
+
+    static boolean ifSequenceIsDecreasing (int arr[], int n)
+    {   //algo is same as above .simple check monotonic sequence or not
+    	int i = 0;
+    	while (i < n - 1 && arr[i] >= arr[i + 1]) i++;
+    	if (i == n - 1) return false;
+
+    	i++;
+    	while (i < n - 1 && arr[i] >= arr[i + 1]) i++;
+    	if (i == n - 1 && arr[n - 1] >= arr[0])
+    		return true;
+    	else
+    		return false;
+    }
+
+    static boolean checkRotatedAndSortedeffcient(int arr[], int n) {
+    	return (ifSequenceIsIncreasing (arr, n) || ifSequenceIsDecreasing (arr, n));
+    }	
+    
+    
+    
+    static int effiecientSolution(int a[],int n,int key) {
+    	int s=0,e=n-1;
+    	while(e>=s) {
+    		int m=(s+e)/2;
+    		
+    		if(a[m]==key) {
+    			return m;
+    		}
+    		//lies on left side of pivot
+    		else if(a[s]<=a[m]) {
+    			if(key>=a[s]&&key<=a[m]) {
+    				e=m-1;
+    			}else {
+    				s=m+1;
+    			}
+    		}
+    		//right side of pivot
+    		else {
+    			if(key<=a[e]&&key>=a[m]) {
+    				s=m+1;
+    			}else {
+    				e=m-1;
+    			}
+    		}
+    		
+    	}
+    	return -1;
+    }
+   
 
     public static void main(String[] args) {
         int arr[] = {30 ,20, 10, 50, 35};
 
-        System.out.println(checkRotatedAndSortedBetterSolution(arr,2));
+        System.out.println(effiecientSolution(arr,arr.length,10));
     }
 
 }

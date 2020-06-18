@@ -53,8 +53,8 @@ public class TrieDSImpl {
 		// else
 
 		int idx = key.charAt(i) - 'a';
-		//recusive call for next character
-		root.child[idx] = deleteUtil(root.child[idx] , key, i + 1);
+		// recusive call for next character
+		root.child[idx] = deleteUtil(root.child[idx], key, i + 1);
 		// if all the child is null then root will be set as null
 		if (isEmpty(root) && root.isEnd == false) {
 			root = null;
@@ -80,10 +80,10 @@ public class TrieDSImpl {
 		String keys[] = { "the", "a", "there", "answer", "any", "by", "bye", "their", "hero", "heroplane" };
 
 		int n = keys.length;
-// Construct trie 
+		// Construct trie 
 		for (int i = 0; i < n; i++)
 			insert(root, keys[i]);
-		
+
 		System.out.println(search(root, "there"));
 		System.out.println(search(root, "therei"));
 		System.out.println(search(root, "a"));

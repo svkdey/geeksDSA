@@ -94,5 +94,9 @@ public class KruskalAlgorithImpl {
 		graph.addEdge(0, 2, 15);
 		krusKalAlgoImpl(4, graph.edges);
 	}
+	/**Observation : if we union all the nodes then number of connected component =number of parent[x]==x;
+	 * 
+	 * 
+	 * **/
 
 }

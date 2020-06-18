@@ -365,6 +365,9 @@ public class LinkedListMain {
 			fast = fast.next.next;
 			slow = slow.next;
 		}
+		if(fast!=null) {
+			slow=slow.next;
+		}
 		LinkedListNode revHead = reverseRecursive1(slow, null);
 		System.out.println(revHead);
 		fast = head;

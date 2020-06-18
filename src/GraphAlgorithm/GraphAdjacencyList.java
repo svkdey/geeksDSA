@@ -63,9 +63,6 @@ public class GraphAdjacencyList {
         return "GraphAdjacencyList [adjList=" + adjList + "]";
     }
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        printGraph(GraphData.getGraph().adjList);
-    }
+
 
 }
