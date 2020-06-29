@@ -1,6 +1,5 @@
 package Algorithms.BackTrackinBasic;
 
-import java.util.List;
 //https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/
 public class MColoring {
 	final int V = 4;

@@ -13,9 +13,7 @@ public class ReverseLinkedListOfKSize {
 			current=nxt;
 			i++;
 		}
-//		if(curre)
-//		System.out.println("temp"+"---->"+temp);
-//		System.out.println("currrent"+"---->"+current);
+		
 		if(current!=null) {
 			head.next=reverseLinkedListOfKSize(current, k);
 			}

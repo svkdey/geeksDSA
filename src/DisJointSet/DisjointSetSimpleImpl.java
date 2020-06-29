@@ -1,7 +1,7 @@
 package DisJointSet;
 
 import java.util.Arrays;
-
+// number of disconnected component => number of parent[i]=i
 public class DisjointSetSimpleImpl {
 
 	public int parent[] = null;

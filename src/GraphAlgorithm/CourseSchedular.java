@@ -83,6 +83,7 @@ public class CourseSchedular {
 		// TODO Auto-generated method stub
 		int course[][]= {{0,1},{1,2},{2,4},{5,6},{5,4},{6,4}};
 		solve(7, course);
+		
 	}	
 
 }

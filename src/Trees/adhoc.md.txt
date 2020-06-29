@@ -1,0 +1,5 @@
+Q. Given a Binary Tree of size N, such that all nodes have distinct values, print all the nodes which don't have a sibling node in sorted order.(ie the nodes has one child)
+ If all nodes have a sibling node then print -1 .
+
+//BFS . check each node who has one child  . collect them and print sortedly o(N)
+

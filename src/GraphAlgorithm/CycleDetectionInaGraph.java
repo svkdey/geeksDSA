@@ -129,10 +129,17 @@ public class CycleDetectionInaGraph {
 //        System.out.println(ifCycleInUndirectedGraph(g2.adjList,  g2.vertexList.size()));
 //        GraphAdjacencyListDirectedGraph gDirected=GraphData.getCyclicDirectedGraph();
 //        System.out.println(gDirected);
-        GraphAdjacencyListDirectedGraph graph=GraphData.getCyclicDirectedGraph();
-        System.out.println(graph);
-        System.out.println(ifCycleInDirectedGraph(graph.adjList,graph.adjList.size()));
+//        GraphAdjacencyListDirectedGraph graph=GraphData.getCyclicDirectedGraph();
+//        System.out.println(graph);
+//        System.out.println(ifCycleInDirectedGraph(graph.adjList,graph.adjList.size()));
 
-
+    	GraphAdjacencyListDirectedGraph g = new GraphAdjacencyListDirectedGraph(4);
+		int couses[][] = { { 1, 0 }, { 0, 2 }, { 2, 3 } };
+		int n = 4;
+		for (int x[] : couses) {
+			g.addEdge(x[0], x[1]);
+		}
+		System.out.println(g.adjList);
+		System.out.println(ifCycleInDirectedGraph(g.adjList, 4));
     }
 }

@@ -2,7 +2,7 @@ bin
 .idea
 DataStructure&Algorithm.iml
 /src/out
-/src/Playground
+/src/Playground/etc
 /src/PracticeGround
 /src/GeekAmazonQstnbank
 .vscode

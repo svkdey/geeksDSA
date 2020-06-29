@@ -200,7 +200,7 @@ public class TreePathProblems {
 	// Print all nodes at distance k from a given node
 	static int count = 0;
 
-	int printKDistantfromLeaf(TreeNode node, int k) {
+	static int printKDistantfromLeaf(TreeNode node, int k) {
 		// Write your code here
 		int path[] = new int[1000];
 		boolean visited[] = new boolean[1000];
@@ -211,7 +211,7 @@ public class TreePathProblems {
 
 	}
 
-	void kDistantFromLeafUtil(TreeNode node, int path[], boolean visited[], int pathLen, int k) {
+	static void kDistantFromLeafUtil(TreeNode node, int path[], boolean visited[], int pathLen, int k) {
 		// Base case
 		if (node == null)
 			return;
@@ -240,7 +240,7 @@ public class TreePathProblems {
 		System.out.println(TreeData.getATree());
 //		findMaxrootToLeafPathWhereSumIsMax(TreeData.getChildSumPropertyTree());
 //		System.out.println(lowestCommonAnsestor(TreeData.getATree(),70,50));
-		pathFromOneNodeToAnother(TreeData.getATree(), 100, 50);
+		System.out.println(printKDistantfromLeaf(TreeData.getATree(),2));
 	}
 
 }

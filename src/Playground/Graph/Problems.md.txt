@@ -1,0 +1,11 @@
+1.max number of changes  to be made to make grid disconneced?
+
+111
+101
+111 ->we need max 2changes to make graph disconnected.
+	now check 1. already disconnected ie no. of connected component is >1 .then op is 0.
+	2.check if any articulation points in graph then op is 1
+	else op is 2 .
+
+2. course schedular 2.
+solution . check if cycle while doing topological sorting

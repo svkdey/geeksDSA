@@ -91,14 +91,15 @@ public class SnakeLadderGame {
 		return false;
 	}
 	public static void main(String[] args) {
-		GraphAdjacencyListDirectedGraph graph = new GraphAdjacencyListDirectedGraph(29);
-		for (int i = 0; i < 29; i++) {
+		GraphAdjacencyListDirectedGraph graph = new GraphAdjacencyListDirectedGraph(35);
+		for (int i = 0; i < 35; i++) {
 			graph.addEdge(i, i +1);
 		}
 //		ladders
 		graph.addEdge(10, 25);
-//		graph.addEdge(2, 21);
-//		graph.addEdge(4, 7);
+	//
+		graph.addEdge(2, 21);
+		graph.addEdge(4, 7);
 		graph.addEdge(19, 28);
 
 //		snakes
@@ -109,7 +110,7 @@ public class SnakeLadderGame {
 
 		ArrayList<Integer> list = new ArrayList<Integer>();
 //		graph.printGraph(graph.adjList);
-		solve(graph.adjList, 29,list);
+		solve(graph.adjList, 35,list);
 		System.out.println(list);
 
 	}

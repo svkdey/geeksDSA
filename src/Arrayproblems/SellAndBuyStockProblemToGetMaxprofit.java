@@ -50,6 +50,7 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 				profit += arr[i] - arr[i - 1];
 			}
 		}
+		System.out.println(profit);
 		return profit;
 
 	}
@@ -119,8 +120,9 @@ public class SellAndBuyStockProblemToGetMaxprofit {
 //		int[] stocklist3 = { 3, 2, 1 };
 //		System.out.println(SellAndBuyStockProblemtoGetMaxprofit(stocklist3, 0, 2));
 		int[] stocklist4 = { 100, 180, 260, 310, 40, 535, 300 };
-		int[] stocklist5 = { 5,5,5,5,5};
-		SellAndBuyStockProblemtoGetMaxprofit3(stocklist4, stocklist4.length);
+		int[] stocklist5 = { 7,1,5,3,6,4};
+//		SellAndBuyStockProblemtoGetMaxprofit2(stocklist4, stocklist4.length);
+		SellAndBuyStockProblemtoGetMaxprofit2(stocklist5,0,stocklist5.length);
 	}
 
 }

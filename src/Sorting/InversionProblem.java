@@ -54,6 +54,7 @@ public class InversionProblem {
 			} else {
 				arr[k] = right[j];
 				j++;
+				
 				count = count + (n1 - i);
 			}
 			k++;

@@ -50,7 +50,7 @@ public class IfLLIsPalindrome {
 	}
 //	2,1,3,1,2
 	private static LinkedListNode generateLinkedList() {
-		int arr[] = { 5, 1, 10, 5 };
+		int arr[] = { 5, 1, 5 };
 		LinkedListNode head = new LinkedListNode(arr[0]);
 		LinkedListNode current = head;
 
