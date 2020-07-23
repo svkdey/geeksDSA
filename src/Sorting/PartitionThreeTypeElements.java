@@ -28,6 +28,7 @@ public class PartitionThreeTypeElements {
                 mid++;
             } else if (arr[mid] == 2) {
                 swap(arr, mid, high);
+                //note there we wont do mid++
                 high--;
             }
 
