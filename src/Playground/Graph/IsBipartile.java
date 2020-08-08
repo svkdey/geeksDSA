@@ -68,7 +68,7 @@ public class IsBipartile {
 
 	}
 
-	static boolean isBipartileResult = false;
+	static boolean isBipartileResult = true;
 
 	public static void biPartileImpl(ArrayList<ArrayList<Integer>> adjList, int v) {
 		int visited[] = new int[v];
@@ -85,7 +85,7 @@ public class IsBipartile {
 				dfs(adjList, childvtx, currentNode, visited, 3 - color);
 			} else {
 				if (parentNode != childvtx && color == visited[childvtx]) {
-					isBipartileResult = true;
+					isBipartileResult = false;
 				}
 			}
 		}
@@ -95,13 +95,13 @@ public class IsBipartile {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GraphAdjacencyList graph = new GraphAdjacencyList(6);
-		graph.addEdge(0, 3);
+//		graph.addEdge(0, 3);
 		graph.addEdge(0, 1);
-//		graph.addEdge(0, 2);
+		graph.addEdge(0, 2);
 		graph.addEdge(1, 2);
-		graph.addEdge(2, 3);
-		graph.addEdge(4, 2);
-		graph.addEdge(3, 5);
+//		graph.addEdge(2, 3);
+//		graph.addEdge(4, 2);
+//		graph.addEdge(3, 5);
 		
 		graph.printGraph(graph.adjList);
 		biPartileImpl(graph.adjList,6);

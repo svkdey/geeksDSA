@@ -28,7 +28,7 @@ public class UniquePermulation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = { 1, 2, 2 };
+		int arr[] = { 1, 2, 3 };
 		HashSet<String> s = new HashSet<>();
 		solve(arr, s, 0, arr.length);
 

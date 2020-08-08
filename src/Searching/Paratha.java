@@ -1,7 +1,5 @@
 package Searching;
 
-import CrackingTheCodingInterView.LinkedList.IfLLIsPalindrome;
-
 //spoj pratha problem
 public class Paratha {
 	
@@ -34,9 +32,10 @@ public class Paratha {
 			int mid=s+(e-s)/2;
 			
 			boolean isPossbleInMidTime=isPossible(numberOfparatha,cooks,cookNumber,mid);
-		
+		System.out.println(isPossbleInMidTime+ " mid"+ mid);
 			if(isPossbleInMidTime) {
-				ans=mid;e=mid-1;
+				ans=mid;
+				e=mid-1;
 				
 			}else {
 				

@@ -77,7 +77,7 @@ public class BinarySearchTrees {
 				root.data = successor.data;
 
 				// delete successor
-				deleteIntoBinaryTree(root.right, successor.data);
+				 root.right=deleteIntoBinaryTree(root.right, successor.data);
 			}
 		}
 		return root;

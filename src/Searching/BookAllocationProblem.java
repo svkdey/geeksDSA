@@ -40,6 +40,7 @@ public class BookAllocationProblem {
 				ans=Math.min(ans, mid);
 				e=mid-1;
 			}else{
+				
 				s=mid+1;
 			}
 		}
@@ -48,9 +49,9 @@ public class BookAllocationProblem {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[]= {10,20,40,50};
+		int arr[]=  {12, 34, 67, 90};
 		int n=arr.length;
-		int m=3;
+		int m=2;
 		
 		System.out.println(solve(arr,n,3));
 	}

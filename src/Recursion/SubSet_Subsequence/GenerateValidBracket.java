@@ -10,6 +10,7 @@ public class GenerateValidBracket {
 	//max open bracket =N 
 	public static void solve(int idx,int openCount,int closeCount,int N,char arr[]) {
 		if(idx==2*N) {
+			
 			System.out.println(Arrays.toString(arr));
 			return;
 		}

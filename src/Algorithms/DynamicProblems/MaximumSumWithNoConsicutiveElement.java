@@ -1,6 +1,6 @@
 package Algorithms.DynamicProblems;
 
-//o(n^2)
+//o(2^n)
 public class MaximumSumWithNoConsicutiveElement {
 	public static int MaximumSumWithNoConsicutiveElementImplRecursive(int arr[], int n) {
 		if (n == 1)

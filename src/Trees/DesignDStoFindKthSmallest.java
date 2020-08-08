@@ -34,7 +34,26 @@ public class DesignDStoFindKthSmallest {
 			return false;
 		}
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * if you want to do by Algorithm
+	static int count = 0;
 
+	public static void findKthSmallestNode(TreeNode root, int k) {
+		if (root == null)
+			return;
+
+		findKthSmallestNode(root.left, k);
+		count++;
+		if (count == k) {
+			System.out.println(root.data);
+			System.exit(1);
+		}
+		findKthSmallestNode(root.right, k);
+
+	}**/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

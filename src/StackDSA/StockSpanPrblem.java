@@ -1,5 +1,6 @@
 package StackDSA;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 import Data.StackData;
@@ -40,6 +41,7 @@ public class StockSpanPrblem {
             sp.push(span);
             S[i]=span;
         }
+        System.out.println(Arrays.toString(S));
     }
 
 	/*
@@ -71,6 +73,13 @@ public class StockSpanPrblem {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		stockSpanPrblmEffecientSolution(StackData.arrangeData);
+		 int price[] = { 10, 4, 100, 90, 120, 800 };
+	        int n = price.length;
+	        int S[] = new int[n];
+
+	        // Fill the span values in array S[]
+//	        solve(price);
+		calculateSpan(price, n, S);
 	}
 
 }

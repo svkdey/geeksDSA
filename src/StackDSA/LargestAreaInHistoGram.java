@@ -39,34 +39,38 @@ public class LargestAreaInHistoGram {
 	// finally take max of booth type values
 
 	static int largestAreaInHistogramLinearSolution(int arr[]) {
-		Stack<Integer> s = new Stack<>();
-		int res = 0;
-		int current = 0;
+		Stack<Integer> s = new Stack<Integer>();
+
+		int area = 0, maxArea = -1;
+		int top = 0;
+
 		for (int i = 0; i < arr.length; i++) {
-			// if exist next smaller element
-
-			while (!s.isEmpty() && arr[s.peek()] >= arr[i]) {
-				// get that top value
-				int tp = s.pop();
-				//
-				current = arr[tp] * (s.isEmpty() ? i : i - s.peek() - 1);
-				res = Math.max(res, current);
-
+			while (!s.isEmpty() && arr[s.peek()] > arr[i]) {
+				// area =arr[top] * ((i-1)-left+1))
+				top = s.pop();
+				int left = s.isEmpty() ? -1 : s.peek();
+				area = arr[top] * ((i - 1) - left);
+				maxArea = Math.max(area, maxArea);
 			}
-			s.push(i);
+
+			s.add(i);
+
 		}
+
 		while (!s.isEmpty()) {
-			int tp = s.pop();
-			//
-			current = arr[tp] * (s.isEmpty() ? arr.length : arr.length - s.peek() - 1);
-			res = Math.max(res, current);
+			top = s.pop();
+			int left = s.isEmpty() ? -1 : s.peek();
+			area = arr[top] * ((arr.length - 1) - left);
+			maxArea = Math.max(area, maxArea);
 		}
-		return res;
+
+		System.out.println(maxArea);
+		return maxArea;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(largestAreaInHistogramLinearSolution(new int[] { 1,2,1 }));
+		System.out.println(largestAreaInHistogramLinearSolution(new int[] { 1, 2, 1 }));
 	}
 
 }

@@ -92,9 +92,7 @@ public class MColoring {
 	// driver program to test above function
 	public static void main(String args[]) {
 		MColoring Coloring = new MColoring();
-		/*
-		 * 
-		 */
+		
 		int graph[][] = { { 0, 1, 1, 1 }, { 1, 0, 1, 0 }, { 1, 1, 0, 1 }, { 1, 0, 1, 0 }, };
 		int m = 3; // Number of colors
 		Coloring.graphColoring(graph, m);

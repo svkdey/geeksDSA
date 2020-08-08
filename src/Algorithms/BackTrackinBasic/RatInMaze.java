@@ -36,10 +36,10 @@ public class RatInMaze {
         int jumps = maze[x][y];
         for (int i = 1; i <= jumps; i++) {
             grid[x][y] = 1;
-            if (isSafe(maze, N, x, y + i) && dfs(maze, N, x, y + i, grid)) {
+            if (isSafe(maze, N, x, y ) && dfs(maze, N, x, y + i, grid)) {
                 return true;
             }
-            if (isSafe(maze, N, x + i, y) && dfs(maze, N, x + i, y, grid)) {
+            if (isSafe(maze, N, x , y) && dfs(maze, N, x + i, y, grid)) {
                 return true;
             }
 
@@ -49,11 +49,11 @@ public class RatInMaze {
     }
 
     public static void main(String[] args) {
-//        int grid[][] = {{2, 1, 0, 0,},
-//                        {3, 0, 0, 1},
-//                        {0, 1, 0, 1},
-//                        {3, 0, 0, 1}};
-        int grid[][]={{1,1},{1,1}};
+        int grid[][] = {{2, 1, 0, 0,},
+                        {3, 0, 0, 1},
+                        {0, 1, 0, 1},
+                        {3, 0, 0, 1}};
+//        int grid[][]={{1,1},{1,1}};
         solve(grid,2);
 
     }

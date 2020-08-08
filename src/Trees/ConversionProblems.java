@@ -145,11 +145,11 @@ public class ConversionProblems {
 			return;
 		treeToDD(root.left);
 
-		if (prev == null) {
+		if (prevCC == null) {
 			headCC = root;
 		} else {
 			root.left = prevCC;
-			prev.right = root;
+			prevCC.right = root;
 		}
 
 		prevCC = root;
@@ -168,8 +168,8 @@ public class ConversionProblems {
 		}
 		TreeNode root = new TreeNode(pre[preIndex]);
 		preIndex++;
-		if (iStart == iEnd) 
-            return root; 
+		if (iStart == iEnd)
+			return root;
 		int inIndex = 0;
 		for (int i = iStart; i <= iEnd; i++) {
 			if (in[i] == root.data) {
@@ -181,6 +181,7 @@ public class ConversionProblems {
 		root.right = makeTreeFromTraversalsUtil(in, pre, inIndex + 1, iEnd);
 		return root;
 	}
+
 //only from in order
 	static TreeNode makeTreeFromInOrderTraversalOnly(int in[]) {
 		return makeTreeFromInOrderTraversalOnlyUtil(in, 0, in.length - 1);
@@ -212,60 +213,42 @@ public class ConversionProblems {
 		}
 		return maxInd;
 	}
+
 //inoder+post order
-	 static class Index { 
-		    int index; 
-		} 
-		    TreeNode buildTree(int in[], int post[], int n) {
-		        // Your code here
-		       Index pIndex = new Index(); 
-		        pIndex.index = n - 1; 
-		        return buildUtil(in, post, 0, n - 1, pIndex);
-		   
-		    }
-		   
-		    TreeNode buildUtil(int in[], int post[], int inStrt, 
-		                   int inEnd, Index pIndex) 
-		    { 
-		        // Base case 
-		        if (inStrt > inEnd) 
-		            return null; 
-		  
-		        /* Pick current TreeNode from Postrder traversal using 
-		           postIndex and decrement postIndex */
-		        TreeNode node = new TreeNode(post[pIndex.index]); 
-		        (pIndex.index)--; 
-		  
-		        /* If this node has no children then return */
-		        if (inStrt == inEnd) 
-		            return node; 
-		  
-		        /* Else find the index of this node in Inorder 
-		           traversal */
-		        int iIndex = search(in, inStrt, inEnd, node.data); 
-		  
-		        /* Using index in Inorder traversal, construct left and 
-		           right subtress */
-		        node.right = buildUtil(in, post, iIndex + 1, inEnd, pIndex); 
-		        node.left = buildUtil(in, post, inStrt, iIndex - 1, pIndex); 
-		  
-		        return node; 
-		    } 
-		  
-		  
-		    /* UTILITY FUNCTIONS */
-		  
-		    /* Function to find index of value in arr[start...end] 
-		     The function assumes that value is present in in[] */
-		    int search(int arr[], int strt, int end, int value) 
-		    { 
-		        int i; 
-		        for (i = strt; i <= end; i++) { 
-		            if (arr[i] == value) 
-		                break; 
-		        } 
-		        return i; 
-		    } 
+	static void makeTreeFromPostTraversals(int in[], int post[]) {
+		postIndex = post.length - 1;
+		TreeNode head = makeTreeFromPostTraversalsUtil(in, post, 0, in.length - 1);
+//		inDFS(head);
+	}
+
+	static int postIndex = 0;
+
+	static TreeNode makeTreeFromPostTraversalsUtil(int in[], int pre[], int iStart, int iEnd) {
+		if (iStart > iEnd) {
+			return null;
+		}
+		TreeNode root = new TreeNode(pre[postIndex]);
+		postIndex--;
+		if (iStart == iEnd)
+			return root;
+		int inIndex = search(iStart, iEnd, root.data, in);
+		root.right = makeTreeFromPostTraversalsUtil(in, pre, inIndex + 1, iEnd);
+		root.left = makeTreeFromPostTraversalsUtil(in, pre, iStart, inIndex - 1);
+
+		return root;
+	}
+
+	private static int search(int s, int e, int key, int arr[]) {
+
+		for (int i = s; i <= e; i++) {
+			if (arr[i] == key) {
+				return i;
+			}
+		}
+		return -1;
+
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		int arr[] = { -1, 0, 0, 1, 1, 3, 5 };

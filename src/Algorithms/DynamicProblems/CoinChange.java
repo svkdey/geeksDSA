@@ -101,11 +101,11 @@ public class CoinChange {
 	}
 
 	public static void main(String[] args) {
-		int coins[] = { 1, 2, 5 };
+		int coins[] = { 1, 7, 10 };
 		int n = coins.length;
-		int targetSum = 3;
-		System.out.println(change(targetSum, coins));
-//        System.out.println(countWays(coins, targetSum, n));
+		int targetSum = 15;
+//		System.out.println(countWays(coins,targetSum,n));
+//        System.out.println(coinCount(coins, n-1, targetSum));
 
 	}
 }

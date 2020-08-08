@@ -1,7 +1,9 @@
 package Sorting;
 
+import java.util.Arrays;
+
 public class InversionCount {
-	int merge(int arr[],int s,int e,int mid){
+	static int merge(int arr[],int s,int e,int mid){
 	    int count=0;
 	    int i=s,k=s,j=mid+1;
 	    int temp[]=new int[1000];
@@ -33,7 +35,7 @@ public class InversionCount {
 	}
 
 
-	int inversionCountByMergeSort(int arr[],int s,int e){
+	static int inversionCountByMergeSort(int arr[],int s,int e){
 	    if(s>=e) return 0;
 	    
 	    int mid=s+(e-s)/2;
@@ -51,7 +53,10 @@ public class InversionCount {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		 int a[] = {5, 6, 2, 4, 1, 9, 7, 100, 13, 25, 36, 46, 35, 88, 54, 67, 84, 27, 3, 13, 99};
+	        int ans=inversionCountByMergeSort(a, 0, a.length - 1);
+	        System.out.println(ans);
+	        System.out.println(Arrays.toString(a));
 	}
 
 }

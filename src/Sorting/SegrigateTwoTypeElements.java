@@ -34,7 +34,34 @@ public class SegrigateTwoTypeElements {
 			swap(arr,startIdx,endIdx);
 		}
 	}
-	
+//	 public static void swap(int nums[], int i, int j) {
+//	        int temp = nums[i] ^ nums[j];
+//	        nums[i] = temp ^ nums[i];
+//	        nums[j] = temp ^ nums[j];
+//	    }
+
+	    public static void twoWayPartition(int nums[], int s, int e) {
+	        int pivot = 1;
+	        int i = s - 1;
+	        for (int j = s; j <= e; j++) {
+	            if (pivot > nums[j]) {
+	                i++;
+	                swap(nums, i, j);
+	            }
+	        }
+	        System.out.println(Arrays.toString(nums));
+	    }
+	    public static void twoWayPartitionOddEven(int nums[], int s, int e) {
+//	        int pivot = 1;
+	        int i = s - 1;
+	        for (int j = s; j <= e; j++) {
+	            if (nums[j]%2==1) {
+	                i++;
+	                swap(nums, i, j);
+	            }
+	        }
+	        System.out.println(Arrays.toString(nums));
+	    }
 	static void swap(int arr[],int i,int j) {
 		int temp=arr[i];
 		arr[i]=arr[j];

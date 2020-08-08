@@ -16,22 +16,24 @@ public class PartitionThreeTypeElements {
      *
      * we will maintain position of low mid high indexs
      */
-    public static void partitionThreeTypeElements(int arr[], int size) {
+    public static void partitionThreeTypeElements(int arr[], int size,int a,int b) {
         // set up initial
-        int low = 0, high = size - 1, mid = 0;
-        while (mid <= high) {
-            if (arr[mid] == 0) {
-                swap(arr, low, mid);
-                low++;
-                mid++;
-            } else if (arr[mid] == 1) {
-                mid++;
-            } else if (arr[mid] == 2) {
-                swap(arr, mid, high);
-                high--;
-            }
+    	 int low= 0;
+         int high=size-1;
+         //here for condition is important that j<=h  and h is variable where h going on reduction after swaps
+         for (int j = 0; j <=high;) {
+             if (arr[j] <a ) {
+                 swap(arr, low, j);
+                 low++;
+                 j++;
+             } else if (arr[j] >b) {
+                 swap(arr, j, high);
+                 high--;
+             }else {
+                 j++;
+             }
 
-        }
+         }
     }
 
     static void swap(int arr[], int i, int j) {
@@ -42,9 +44,11 @@ public class PartitionThreeTypeElements {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        int arr[] = {1, 1, 2, 0, 2, 0, 1};
-        partitionThreeTypeElements(arr, arr.length);
-        System.out.println(Arrays.toString(arr));
+    	int a[] = {5, 6, 2, 4, 1, 9, 7, 100, 13, 25, 36, 46, 35, 88, 54, 67, 84, 27, 3, 13, 99};
+    	partitionThreeTypeElements(a,  a.length,5,13);
+
+        System.out.println(Arrays.toString(a));
+//        System.out.println(Arrays.toString(arr));
     }
 
 }

@@ -1,5 +1,6 @@
 package Algorithms.DynamicProblems;
 
+import java.util.Arrays;
 
 public class LongestCommonSubsequence {
     public static void resetDP(int m,int n){
@@ -46,8 +47,11 @@ public class LongestCommonSubsequence {
         int n = str2.length();
         dp=new int[m+1][n+1];
         resetDP(m,n);
-
+        
         System.out.println(LCSbyDP(str1, str2, m, n));
+        for(int i=0;i<dp.length;i++) {
+        	System.out.println(Arrays.toString(dp[i]));
+        }
        // System.out.println(Arrays.toString(dp));
     }
 }

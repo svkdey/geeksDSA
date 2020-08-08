@@ -5,11 +5,11 @@ import Trees.TreeNode;
 public class TreeData {
 	public static TreeNode getATree() {
 		TreeNode root = new TreeNode(10);
-		root.left = new TreeNode(20);
+		root.left = new TreeNode(6);
 		root.left.right=new TreeNode(100);
 		root.right = new TreeNode(20);
-		root.right.left = new TreeNode(100);
-//		root.right.right = new TreeNode(50);
+		root.right.left = new TreeNode(50);
+		root.right.right = new TreeNode(7);
 		return root;
 	}
 	public static TreeNode getATree2() {
