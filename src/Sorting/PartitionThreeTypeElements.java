@@ -18,20 +18,19 @@ public class PartitionThreeTypeElements {
      */
     public static void partitionThreeTypeElements(int arr[], int size,int a,int b) {
         // set up initial
-    	 int low= 0;
-         int high=size-1;
-         //here for condition is important that j<=h  and h is variable where h going on reduction after swaps
-         for (int j = 0; j <=high;) {
-             if (arr[j] <a ) {
-                 swap(arr, low, j);
-                 low++;
-                 j++;
-             } else if (arr[j] >b) {
-                 swap(arr, j, high);
-                 high--;
-             }else {
-                 j++;
-             }
+        int low = 0, high = size - 1, mid = 0;
+        while (mid <= high) {
+            if (arr[mid] == 0) {
+                swap(arr, low, mid);
+                low++;
+                mid++;
+            } else if (arr[mid] == 1) {
+                mid++;
+            } else if (arr[mid] == 2) {
+                swap(arr, mid, high);
+                //note there we wont do mid++
+                high--;
+            }
 
          }
     }
