@@ -29,79 +29,66 @@ public class LeetCode1110 {
 		}
 
 	}
-	 public static List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
-		 HashSet<Integer> set=new HashSet<Integer>();
-		 for(int node:to_delete) {
-			 set.add(node);
-		 }
-		 List<TreeNode> ans=new ArrayList<TreeNode>();
-		 if(root==null) return ans;
-		 
-		 
-	     Queue<TreeNode> q = new LinkedList<TreeNode>();
-	     TreeNode dummy=new TreeNode(-999);
-	     dummy.left=root;
-	     q.add(dummy);
-	  
-	     while(!q.isEmpty()) {
-	    	 int s=q.size();
-	    	 for(int i=0;i<s;i++) {
-	    		 TreeNode n=q.remove();
-	    		 if(n.left!=null) {
-	    			 if(set.contains(root.left.val)) {
-	    				 if(n.left.left!=null) {
-	    					 q.add(n.left.left);
-	    					 if(!set.contains(n.left.left.val))ans.add(n.left.left);
-	    				 }
-	    				 if(n.left.right!=null) {
-	    					 q.add(n.left.right);
-	    					 if(!set.contains(n.left.right.val)) ans.add(n.left.right);
-	    				 }
-	    				 n.left=null;
-	    			 }else {
-	    				 q.add(n.left);
-	    			 }
-	    		 }
-	    		 if(n.right!=null) {
-	    			 if(set.contains(root.right.val)) {
-	    				 if(n.right.left!=null) {
-	    					 q.add(n.right.left);
-	    					 if(!set.contains(n.right.left.val))ans.add(n.right.left);
-	    				 }
-	    				 if(n.right.right!=null) {
-	    					 q.add(n.right.right);
-	    					 if(!set.contains(n.right.right.val))ans.add(n.right.right);
-	    				 }
-	    				 n.right=null;
-	    			 }else {
-	    				 q.add(n.right);
-	    			 }
-	    		 }
-	    	 }
-	     }
-	     if(dummy.left!=null) {
-	    	 ans.add(dummy.left);
-	     }
-	     System.out.println(ans);
-	     return ans;
-	        
-	    }
-	 public static void main(String[] args) {
-			TreeNode root = new TreeNode(1);
-			TreeNode a = new TreeNode(2);
-			TreeNode b = new TreeNode(3);
-			TreeNode c = new TreeNode(4);
-			TreeNode d = new TreeNode(5);
 
-			TreeNode e = new TreeNode(6);
-			root.left = a;
-			root.right = b;
-			a.left = c;
-			a.right = d;
-
-			b.left = e;
-
-			System.out.println(delNodes(root,new int[] {2,3}));
-
+	private static boolean dfs(TreeNode root, HashSet<Integer> set, List<TreeNode> ans) {
+		if (root == null) {
+			return false;
 		}
+		boolean l = dfs(root.left, set, ans);
+		boolean r = dfs(root.right, set, ans);
+		if (l == true) {
+			if (root.left.left != null) {
+				ans.add(root.left.left);
+			}
+			if (root.left.right != null) {
+				ans.add(root.left.right);
+			}
+		}
+		if (r == true) {
+			if (root.right.left != null) {
+				ans.add(root.right.left);
+			}
+			if (root.left.right != null) {
+				ans.add(root.left.right);
+			}
+		}
+		return set.contains(root.val);
+
+	}
+
+	public static List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (int x : to_delete) {
+			set.add(x);
+		}
+		List<TreeNode> ans = new ArrayList<TreeNode>();
+		TreeNode dummy = new TreeNode(-999);
+		TreeNode head = dummy;
+		dummy.left = root;
+		dfs(dummy, set, ans);
+		if (head.left != null) {
+			ans.add(head.left);
+		}
+		return ans;
+
+	}
+
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		TreeNode a = new TreeNode(2);
+		TreeNode b = new TreeNode(3);
+		TreeNode c = new TreeNode(4);
+		TreeNode d = new TreeNode(5);
+
+		TreeNode e = new TreeNode(6);
+		root.left = a;
+		root.right = b;
+		a.left = c;
+		a.right = d;
+
+		b.left = e;
+
+		System.out.println(delNodes(root, new int[] { 2, 3 }));
+
+	}
 }

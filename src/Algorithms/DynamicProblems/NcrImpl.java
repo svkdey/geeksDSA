@@ -57,7 +57,7 @@ public class NcrImpl {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(coEfficient(5, 2));
+		System.out.println(nCrModp(5, 2));
 	}
 
 }

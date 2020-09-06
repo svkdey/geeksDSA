@@ -27,7 +27,7 @@ public class LeetCode746 {
 	
 	}
 	
-	public static int minCostClimbingStairsBottomUP(int[] cost, int n) {
-		
-	}
+//	public static int minCostClimbingStairsBottomUP(int[] cost, int n) {
+//		
+//	}
 }

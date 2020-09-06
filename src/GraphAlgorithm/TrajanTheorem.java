@@ -31,23 +31,23 @@ public class TrajanTheorem {
 		visited[u] = true;
 		disc[u] = low[u] = time++;
 		stack.push(u);
-		System.out.println(u+"---->"+Arrays.toString(parent));
+	//	System.out.println(u+"---->"+Arrays.toString(parent));
 		for (int v : list.get(u)) {
 			if (visited[v] == false) {
 				parent[v] = u;
 				dfs(list, v, visited, disc, low, parent, stack);
 				low[u] = Math.min(low[u], low[v]);
-				System.out.println("low"+"--->"+Arrays.toString(low)+"  disc  "+Arrays.toString(disc));
+			//	System.out.println("low"+"--->"+Arrays.toString(low)+"  disc  "+Arrays.toString(disc));
 				if (low[v] > disc[u]) {
 					ArrayList<Integer> l = new ArrayList<Integer>();
 					l.add(u);
 					l.add(v);
-					System.out.println("----------->"+l);
+					//System.out.println("----------->"+l);
 				}
 			} else if (v !=parent[u]) {
 				
 				low[u] = Math.min(low[v], disc[u]);
-				System.out.println("*********"+u+" " +v +"   low"+"--->"+Arrays.toString(low)+"  disc  "+Arrays.toString(disc));
+				//System.out.println("*********"+u+" " +v +"   low"+"--->"+Arrays.toString(low)+"  disc  "+Arrays.toString(disc));
 				}
 			}
 		
@@ -60,7 +60,7 @@ public class TrajanTheorem {
 				if (x == u)
 					break;
 			}
-			System.out.print(br.toString().trim() + ",");
+			System.out.println(br.toString().trim() + ",");
 		}
 		
 	}

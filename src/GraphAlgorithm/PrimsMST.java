@@ -129,7 +129,7 @@ public class PrimsMST {
 		}
 	}
 
-	static int spanningTree(int V, int E, ArrayList<ArrayList<Integer>> graph) {
+	static int spanningTree(int V, ArrayList<ArrayList<Integer>> graph) {
 		// Add your code here
 		int sum = 0;
 		boolean visited[] = new boolean[V];
@@ -169,7 +169,7 @@ public class PrimsMST {
 		int graph[][] = new int[][] { { 0, 1, 5 }, { 5, 0, 3 }, { 1, 3, 0 } };
 
 		// Print the solution
-		primMST(graph, 3);
-		Prims(graph);
+//		spanningTree(3,graph);
+//		Prims(graph);
 	}
 }

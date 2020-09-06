@@ -30,6 +30,7 @@ public class BellManFordAlgorithm {
 			for(Pair _v:_VList) {
 				if(dist[c]!=Integer.MAX_VALUE&& dist[_v.vertex]>dist[c]+_v.weight) {
 					System.out.println("Graph contains -ve cycle");
+					break;
 				}
 				
 			}

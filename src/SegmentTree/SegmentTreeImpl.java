@@ -2,9 +2,11 @@ package SegmentTree;
 
 public class SegmentTreeImpl {
 	static int tree[] = null;
+	static int lazy[] = null;
 
 	public static void createSegmentTree(int[] arr) {
-		tree = new int[4 * arr.length];
+		tree = new int[4 * arr.length + 1];
+		lazy = new int[1000000];
 		constructTree(arr, 0, arr.length, 0);
 	}
 
@@ -62,9 +64,71 @@ public class SegmentTreeImpl {
 
 			updateSumUtil(mid, 0, mid, 2 * si + 1, diff);
 			updateSumUtil(i, mid + 1, se, 2 * si + 2, diff);
-			;
+
 		}
 
 	}
 
+	public static void updateRangeLazy(int ss, int se, int l, int r, int inc, int idx) {
+		// clear lazy propagation;
+		if (lazy[idx] != 0) {
+			tree[idx] += lazy[idx];
+			if (ss != se) {
+				lazy[2 * idx] += lazy[idx];
+				lazy[2 * idx + 1] += lazy[idx];
+			}
+			lazy[idx] = 0;
+		}
+		// base case
+		if (r < ss || l > se) {
+			return;
+		}
+		// recursive case
+
+//		1. complete overlap
+		if (ss >= l && se <= r) {
+			tree[idx] += inc;
+			if (ss != se) {
+				lazy[2 * idx] += inc;
+				lazy[2 * idx + 1] += inc;
+
+			}
+			return;
+
+		}
+
+//		2. partial
+		int mid = ss + (se - ss) / 2;
+
+		updateRangeLazy(ss, mid, l, r, inc, 2 * idx);
+		updateRangeLazy(mid, se, l, r, inc, 2 * idx + 1);
+		tree[idx] = tree[2 * idx] + tree[2 * idx + 1];
+		return;
+	}
+
+	public static int queryRangeLazy(int ss, int se, int qs, int qe, int idx) {
+		// clear lazy propagation;
+		if (lazy[idx] != 0) {
+			tree[idx] += lazy[idx];
+			if (ss != se) {
+				lazy[2 * idx] += lazy[idx];
+				lazy[2 * idx + 1] += lazy[idx];
+			}
+			lazy[idx] = 0;
+		}
+		// query logic
+		if (ss > qe || se < qs) {
+			return Integer.MAX_VALUE;
+		}
+		if (ss >= qs && se <= qe) {
+			return tree[idx];
+		}
+		//partial
+		int mid = ss + (se - ss) / 2;
+
+		int left=queryRangeLazy(ss, mid,qs,qe, 2 * idx);
+		int right=queryRangeLazy(mid+1, se,qs,qe, 2 * idx+1);
+		
+		return left+right;
+	}
 }

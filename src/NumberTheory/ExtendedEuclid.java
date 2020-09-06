@@ -39,8 +39,27 @@ public class ExtendedEuclid {
 		x=cX;
 		y=cY;
 	}
+	//application 1  getInverseModulo
+	public static int findInverseModulo(int a,int mod) {
+		if(GCD.gcd(a, mod)==1) {
+			solve(a, mod);
+			return (x+mod)%mod;
+		}else {
+			return Integer.MAX_VALUE;
+		}
+	}
+	//{x,y} ={x1+(b/g)t;y1-(a/g)t} general solution
+	public static void linerDiophantineEqueation(int a,int b,int c) {
+		if(c%GCD.gcd(a, b)==0) {
+			solve(a,b);
+			System.out.println("x1 ->"+x+"---"+"y1 ->"+y);
+		}else {
+			System.out.println("no solution");
+		}
+	}
+	
 	public static void main(String[] args) {
-		solve(18, 30);
-		System.out.println(x+" "+y);
+		System.out.println();
+		linerDiophantineEqueation(3,6,9);
 	}
 }

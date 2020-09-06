@@ -11,7 +11,7 @@ public class MinJumps {
 
         for(int i=0;i<=n-2;i++){
             if(i+arr[i]>=n-1){
-                int sub_res=minJumps(arr,i+1);
+                int sub_res=1+minJumps(arr,i+1);
                 if(sub_res!=Integer.MAX_VALUE){
                     res=Math.min(res,sub_res);
                 }
@@ -42,8 +42,8 @@ public class MinJumps {
     }
 
     public static void main(String[] args) {
-        int[] jumps={3,4,2,1,2,1};
-        System.out.println(minJumpsDP(jumps,jumps.length));
+        int[] jumps={3,2,1,0,4};
+        System.out.println(minJumps(jumps,jumps.length));
 
     }
 }

@@ -46,7 +46,10 @@ public class LeetCode416 {
 		  
 	  }
 	  public static void main(String[] args) {
-		int arr[]= {1, 2, 3, 6};
-		System.out.println(canPartition(arr));
+//		int arr[]= {1, 2, 3, 6};
+//		System.out.println(canPartition(arr));
+		  
+		  double point= Math.random();
+		  System.out.println(point);
 	}
 }

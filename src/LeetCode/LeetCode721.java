@@ -50,9 +50,7 @@ public class LeetCode721 {
 	    		 }
 	    		 ans.add(subAns);
 	    	 }
-	    	 
-	    	 
-	    	 
+
 	     }
 	     return ans;
 		 
