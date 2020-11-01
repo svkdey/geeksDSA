@@ -61,10 +61,11 @@ public class PreviousGreaterElement {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(Arrays.toString(StackData.arrangeData2));
+		System.out.println();
 //		prevgreaterElement(StackData.arrangeData);
 //		prevgreaterElementEffective(StackData.arrangeData);
-		nextgreaterElementEffective(StackData.arrangeData2);
+		int arr[]= {1,2,1};
+		nextgreaterElementEffective(arr);
 	}
 
 }

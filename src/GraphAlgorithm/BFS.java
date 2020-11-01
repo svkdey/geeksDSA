@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 /**
  Application of BFS
     shortest path in unweighted Graph
@@ -95,5 +96,7 @@ public class BFS {
         BFSDisonnectedGraphimpl(g1.adjList,  7);
         System.out.println(g2.adjList);
         BFSDisonnectedGraphimpl(g2.adjList,  4);
+        
+        
     }
 }

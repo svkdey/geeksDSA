@@ -1,26 +1,27 @@
 package Algorithms.GreedyBasic;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-//class Pair {
-//    int weight;
-//    int end;
-//
-//    public Pair(int start, int end) {
-//        this.start = start;
-//        this.end = end;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Pair{" +
-//                "start=" + start +
-//                ", end=" + end +
-//                '}';
-//    }
-//}
+/*
+	//class Pair {
+	//    int weight;
+	//    int end;
+	//
+	//    public Pair(int start, int end) {
+	//        this.start = start;
+	//        this.end = end;
+	//    }
+	//
+	//    @Override
+	//    public String toString() {
+	//        returnOOOOOO "Pair{" +
+	//                "start=" + start +
+	//                ", end=" + end +
+	//                '}';
+	//    }
+	//}
+*/
 public class FractionalKnapsacProblem {
     public static void fractionalKnapsacProblemImpl(int weight[], int price[], int targetWeight) {
         TreeMap<Float,Integer> tm=new TreeMap<>(Collections.reverseOrder());

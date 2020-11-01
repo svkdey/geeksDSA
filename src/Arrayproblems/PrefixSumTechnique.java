@@ -7,6 +7,7 @@ public class PrefixSumTechnique {
 
 		// precomputation o(n) .
 		// retieve arr[r]-arr[l-1]
+		
 		if (l > 0) {
 			return prefix_arr[r] - prefix_arr[l-1];
 		} else {

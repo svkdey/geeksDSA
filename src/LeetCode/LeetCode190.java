@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class LeetCode190 {
     public static int reverseBits(int n) {
-    	 StringBuilder s=new StringBuilder();
+    	StringBuilder s=new StringBuilder();
         for(int i=31;i>=0;i--) {
         	int temp=(n&1);
         	n=n>>>1;

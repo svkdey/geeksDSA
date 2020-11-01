@@ -1,5 +1,6 @@
 package StackDSA;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class NextGreaterNumber {
@@ -54,8 +55,8 @@ public class NextGreaterNumber {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		long arr[] = { 6, 8, 0, 1, 3 };
-		System.out.println(arr);
+		long arr[] = {1,2,1,3};
+		System.out.println(Arrays.toString(arr));
 		printNGESoltutionTwo(arr, arr.length);
 	}
 

@@ -30,7 +30,7 @@ public class TotalNumberOfCoinChange {
 		return t[coins.length][sum];
 	}
 	public static void main(String[] args) {
-		int amount = 5, coins[] = {10};
+		int amount = 11, coins[] = {1, 2, 5};
 		System.out.println(totalNumberOfCoinChange(coins,amount));
 	}
 }
