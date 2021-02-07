@@ -23,15 +23,17 @@ public class Knapsac {
 	static int memo[][] = null;
 
 	public static int solve(Item items[], int targetWeight, int itemIdxNumber) {
-		if (targetWeight < 0 || itemIdxNumber < 0)
+		if (targetWeight < 0 )
+			return 0;
+		if (itemIdxNumber == 0 )
 			return 0;
 		if (memo[targetWeight][itemIdxNumber] != -1) {
 			return memo[targetWeight][itemIdxNumber];
 		}
 		int includeVolume = 0, excludeVolume = 0;
 		if (targetWeight - items[itemIdxNumber].weight >= 0) {
-			includeVolume = items[itemIdxNumber].volume
-					+ solve(items, targetWeight - items[itemIdxNumber].weight, itemIdxNumber - 1);
+			includeVolume = items[itemIdxNumber-1].volume
+					+ solve(items, targetWeight - items[itemIdxNumber-1].weight, itemIdxNumber - 1);
 		}
 		excludeVolume = solve(items, targetWeight, itemIdxNumber - 1);
 		memo[targetWeight][itemIdxNumber] = Math.max(includeVolume, excludeVolume);
